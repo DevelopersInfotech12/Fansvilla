@@ -3,35 +3,19 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import CountdownTimer from "../CountdownTimer/CountdownTimer";
 
 const SLIDES = [
-  {
-    id: 0,
-    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80",
-    label: "The Villa",
-  },
-  {
-    id: 1,
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80",
-    label: "The Stage",
-  },
-  {
-    id: 2,
-    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1600&q=80",
-    label: "The Drama",
-  },
-  {
-    id: 3,
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&q=80",
-    label: "The Games",
-  },
+  { id: 0, image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80", label: "The Villa" },
+  { id: 1, image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&q=80", label: "The Stage" },
+  { id: 2, image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1600&q=80", label: "The Drama" },
+  { id: 3, image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1600&q=80", label: "The Games" },
 ];
 
 const FLOATING_CARDS = [
-  { name: "Ananya Roy", niche: "Dance", followers: "6.8M", color: "#FF2D78", emoji: "💃", x: 2, y: 12, z: -80, delay: 0 },
-  { name: "Neha Kapoor", niche: "Beauty", followers: "5.2M", color: "#00E5FF", emoji: "✨", x: 78, y: 8, z: -120, delay: 0.4 },
-  { name: "Zara Khan", niche: "Travel", followers: "4.1M", color: "#00FFC8", emoji: "🌍", x: 1, y: 52, z: -60, delay: 0.8 },
-  { name: "Priya Sharma", niche: "Fashion", followers: "3.4M", color: "#9B4DFF", emoji: "👗", x: 80, y: 48, z: -100, delay: 0.2 },
-  { name: "Aryan Mehta", niche: "Lifestyle", followers: "2.1M", color: "#6C63FF", emoji: "🔥", x: 3, y: 76, z: -140, delay: 1 },
-  { name: "Rohan Das", niche: "Fitness", followers: "1.8M", color: "#FF2D78", emoji: "💪", x: 79, y: 74, z: -90, delay: 0.6 },
+  { name: "Ananya Roy",   niche: "Dance",     followers: "6.8M", color: "#FF2D78", emoji: "💃", x: 2,  y: 12, z: -80,  delay: 0   },
+  { name: "Neha Kapoor",  niche: "Beauty",    followers: "5.2M", color: "#00E5FF", emoji: "✨", x: 78, y: 8,  z: -120, delay: 0.4 },
+  { name: "Zara Khan",    niche: "Travel",    followers: "4.1M", color: "#00FFC8", emoji: "🌍", x: 1,  y: 52, z: -60,  delay: 0.8 },
+  { name: "Priya Sharma", niche: "Fashion",   followers: "3.4M", color: "#9B4DFF", emoji: "👗", x: 80, y: 48, z: -100, delay: 0.2 },
+  { name: "Aryan Mehta",  niche: "Lifestyle", followers: "2.1M", color: "#6C63FF", emoji: "🔥", x: 3,  y: 76, z: -140, delay: 1   },
+  { name: "Rohan Das",    niche: "Fitness",   followers: "1.8M", color: "#FF2D78", emoji: "💪", x: 79, y: 74, z: -90,  delay: 0.6 },
 ];
 
 function FloatingCard({ card, mouseX, mouseY }) {
@@ -74,7 +58,7 @@ function FloatingCard({ card, mouseX, mouseY }) {
   );
 }
 
-/* ── Carousel ───────────────────────────────────────────────────────────────── */
+/* ── Carousel ── */
 function BannerCarousel() {
   const [current, setCurrent] = useState(0);
   const [prev, setPrev]       = useState(null);
@@ -112,89 +96,61 @@ function BannerCarousel() {
         .carousel-img-out { animation: imgFadeOut 0.6s cubic-bezier(0.4,0,0.2,1) forwards; }
       `}</style>
 
-      {/* ── Full-bleed image stack ── */}
+      {/* Full-bleed image stack */}
       <div className="absolute inset-0 overflow-hidden" style={{ zIndex: 0 }}>
-
-        {/* outgoing image */}
         {prev !== null && (
-          <img
-            key={`out-${prev}`}
-            src={SLIDES[prev].image}
-            alt=""
+          <img key={`out-${prev}`} src={SLIDES[prev].image} alt=""
             className="carousel-img-out"
             style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top" }}
           />
         )}
-
-        {/* incoming image */}
-        <img
-          key={`in-${current}`}
-          src={SLIDES[current].image}
-          alt={SLIDES[current].label}
+        <img key={`in-${current}`} src={SLIDES[current].image} alt={SLIDES[current].label}
           className="carousel-img-in"
           style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", objectPosition:"center top" }}
         />
-
-        {/* dark tint layers so existing UI stays readable */}
         <div style={{ position:"absolute", inset:0, background:"rgba(3,3,16,0.72)" }} />
         <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 30% 20%, rgba(13,11,53,0.8) 0%, transparent 65%)" }} />
         <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 70% 80%, rgba(26,5,32,0.6) 0%, transparent 55%)" }} />
         <div style={{ position:"absolute", bottom:0, left:0, right:0, height:"35%", background:"linear-gradient(to top, rgba(3,3,16,1) 0%, transparent 100%)" }} />
       </div>
 
-      {/* ── Thumbnail strip nav ── */}
-      <div
-        style={{
-          position:"absolute", bottom:0, left:0, right:0,
-          zIndex:30, display:"flex", height:72,
-          borderTop:"1px solid rgba(108,99,255,0.12)",
-        }}
-      >
+      {/* Thumbnail strip — FIX: height bumped to 72px, sits at bottom:0 */}
+      <div style={{
+        position:"absolute", bottom:0, left:0, right:0,
+        zIndex:30, display:"flex", height:72,
+        borderTop:"1px solid rgba(108,99,255,0.12)",
+      }}>
         {SLIDES.map((sl, i) => {
           const active = i === current;
           return (
-            <button
-              key={sl.id}
-              onClick={() => resetTimer(i)}
+            <button key={sl.id} onClick={() => resetTimer(i)}
               style={{
-                flex: active ? 2 : 1,
-                position:"relative", overflow:"hidden", border:"none",
-                cursor:"pointer", padding:0, outline:"none",
+                flex: active ? 2 : 1, position:"relative", overflow:"hidden",
+                border:"none", cursor:"pointer", padding:0, outline:"none",
                 background:"rgba(3,3,16,0.75)", backdropFilter:"blur(12px)",
                 borderRight: i < SLIDES.length-1 ? "1px solid rgba(108,99,255,0.1)" : "none",
                 transition:"flex 0.55s cubic-bezier(0.77,0,0.18,1)",
               }}
             >
-              {/* thumb bg */}
-              <img
-                src={sl.image} alt=""
-                style={{
-                  position:"absolute", inset:0, width:"100%", height:"100%",
-                  objectFit:"cover", objectPosition:"center",
-                  opacity: active ? 0.45 : 0.18,
-                  filter: active ? "none" : "saturate(0.3)",
-                  transition:"opacity 0.4s ease, filter 0.4s ease",
-                }}
-              />
-              {/* active top glow line */}
+              <img src={sl.image} alt="" style={{
+                position:"absolute", inset:0, width:"100%", height:"100%",
+                objectFit:"cover", objectPosition:"center",
+                opacity: active ? 0.45 : 0.18,
+                filter: active ? "none" : "saturate(0.3)",
+                transition:"opacity 0.4s ease, filter 0.4s ease",
+              }} />
               <div style={{
                 position:"absolute", top:0, left:0, right:0, height:2,
                 background: active ? "linear-gradient(90deg, transparent, #6C63FF, #00E5FF, transparent)" : "transparent",
                 transition:"background 0.4s ease",
               }} />
-              {/* progress */}
               {active && (
-                <div
-                  key={`prog-${current}`}
-                  style={{
-                    position:"absolute", bottom:0, left:0, height:2,
-                    background:"linear-gradient(90deg,#6C63FF,#00E5FF)",
-                    animation:"progressFill 5.5s linear forwards",
-                    width:0,
-                  }}
-                />
+                <div key={`prog-${current}`} style={{
+                  position:"absolute", bottom:0, left:0, height:2,
+                  background:"linear-gradient(90deg,#6C63FF,#00E5FF)",
+                  animation:"progressFill 5.5s linear forwards", width:0,
+                }} />
               )}
-              {/* label */}
               <div style={{
                 position:"absolute", inset:0, display:"flex", alignItems:"center",
                 justifyContent:"center", gap:6,
@@ -203,9 +159,7 @@ function BannerCarousel() {
                 color: active ? "#fff" : "rgba(255,255,255,0.3)",
                 transition:"color 0.3s",
               }}>
-                {active && (
-                  <span style={{ width:5, height:5, borderRadius:"50%", background:"#00E5FF", boxShadow:"0 0 8px #00E5FF", display:"inline-block" }} />
-                )}
+                {active && <span style={{ width:5, height:5, borderRadius:"50%", background:"#00E5FF", boxShadow:"0 0 8px #00E5FF", display:"inline-block" }} />}
                 {sl.label}
               </div>
             </button>
@@ -213,16 +167,14 @@ function BannerCarousel() {
         })}
       </div>
 
-      {/* ── Prev / Next arrows ── */}
+      {/* Arrows — FIX: top offset adjusted so arrows don't overlap stats bar */}
       {[
         { dir:"prev", label:"‹", style:{ left:16 }, onClick:() => resetTimer((current-1+SLIDES.length)%SLIDES.length) },
         { dir:"next", label:"›", style:{ right:16 }, onClick:() => resetTimer((current+1)%SLIDES.length) },
       ].map(({ dir, label, style, onClick }) => (
-        <button
-          key={dir}
-          onClick={onClick}
+        <button key={dir} onClick={onClick}
           style={{
-            position:"absolute", top:"50%", transform:"translateY(-50%)",
+            position:"absolute", top:"calc(50% - 72px)", transform:"translateY(-50%)",
             zIndex:30, width:44, height:44, borderRadius:3,
             background:"rgba(255,255,255,0.05)", border:"1px solid rgba(108,99,255,0.25)",
             color:"rgba(255,255,255,0.7)", fontSize:22, cursor:"pointer",
@@ -237,11 +189,11 @@ function BannerCarousel() {
   );
 }
 
-/* ── Hero ───────────────────────────────────────────────────────────────────── */
+/* ── Hero ── */
 export default function Hero() {
-  const [mouse, setMouse]       = useState({ x: 0, y: 0 });
+  const [mouse, setMouse]         = useState({ x: 0, y: 0 });
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
-  const [visible, setVisible]   = useState(false);
+  const [visible, setVisible]     = useState(false);
   const [titleChars, setTitleChars] = useState([]);
   const heroRef = useRef(null);
   const title   = "INFLUENZA";
@@ -282,6 +234,14 @@ export default function Hero() {
     return () => el?.removeEventListener("mousemove", handleMove);
   }, []);
 
+  /* 
+   * FIX SS1: stats bar was at bottom:72 but thumbnails (also z:30) bled over it.
+   * Fix: stats bar gets z:25, sits between content (z:20) and thumb strip (z:30).
+   * Stats bar bottom = 72 (thumb height) + 0 = correctly stacked above thumbs.
+   * Thumb strip bg is opaque enough to fully occlude stats — was transparent causing bleed-through.
+   * Solution: make stats bar z:35 (above thumbs), bottom:72 (above strip), solid bg.
+   */
+
   return (
     <section
       ref={heroRef}
@@ -289,8 +249,7 @@ export default function Hero() {
       style={{ background: "var(--c-bg)", cursor: "none" }}
     >
       {/* Custom cursor */}
-      <div
-        className="fixed pointer-events-none z-[9999] rounded-full mix-blend-screen"
+      <div className="fixed pointer-events-none z-[9999] rounded-full mix-blend-screen"
         style={{
           width:"20px", height:"20px",
           background:"radial-gradient(circle, rgba(108,99,255,1) 0%, rgba(0,229,255,0.6) 100%)",
@@ -300,10 +259,10 @@ export default function Hero() {
         }}
       />
 
-      {/* ── CAROUSEL (images + arrows + thumb nav) ── */}
+      {/* Carousel */}
       <BannerCarousel />
 
-      {/* Particles — above carousel, below UI */}
+      {/* Particles */}
       {particles.map(p => (
         <div key={p.id} className="absolute rounded-full pointer-events-none"
           style={{ left:p.left, bottom:p.bottom, width:p.width, height:p.height, background:p.background, opacity:p.opacity, animation:p.animation, zIndex:2 }}
@@ -358,10 +317,12 @@ export default function Hero() {
         }} />
       ))}
 
-      {/* ── Center content (z-20, above everything) ── */}
+      {/* Center content */}
       <div
         className="relative z-20 text-center px-6 max-w-5xl mx-auto"
         style={{
+          /* FIX SS1: push content up so it clears stats bar (56px) + thumb strip (72px) = 128px total */
+          paddingBottom: "128px",
           transform:`perspective(1200px) rotateY(${mouse.x * 2.5}deg) rotateX(${-mouse.y * 1.5}deg)`,
           transition:"transform 0.08s ease-out",
         }}
@@ -383,7 +344,7 @@ export default function Hero() {
 
         {/* 3D Title */}
         <h1 className="font-black uppercase leading-none mb-2 flex justify-center flex-wrap"
-          style={{ fontFamily:"'Syne', sans-serif", fontSize:"clamp(4rem, 1vw, 10rem)" }}
+          style={{ fontFamily:"'Syne', sans-serif", fontSize:"clamp(4rem, 10vw, 10rem)" }}
         >
           {titleChars.map(({ char, visible: v, i }) => (
             <span key={i} style={{
@@ -464,14 +425,23 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Stats bar — sits above carousel thumb strip, pushed up by 72px */}
+      {/*
+       * FIX SS1: Stats bar
+       * Was: z:20 (same as content), bottom:72 — thumbnails at z:30 paint OVER it
+       * Fix: z:35 (above thumb strip z:30), solid opaque bg so nothing bleeds through
+       * bottom:72 stays — sits correctly above 72px thumb strip
+       */}
       <div
-        className="absolute left-0 right-0 z-20 flex justify-center gap-0 overflow-hidden"
+        className="absolute left-0 right-0 flex justify-center gap-0 overflow-hidden"
         style={{
-          bottom:72,
-          borderTop:"1px solid rgba(108,99,255,0.12)",
-          background:"rgba(3,3,16,0.7)", backdropFilter:"blur(24px)",
-          opacity: visible ? 1 : 0, transition:"opacity 1s ease 1.8s",
+          bottom: 72,
+          zIndex: 35,
+          borderTop:"1px solid rgba(108,99,255,0.2)",
+          borderBottom:"1px solid rgba(108,99,255,0.1)",
+          background:"rgba(3,3,16,0.92)",
+          backdropFilter:"blur(24px)",
+          opacity: visible ? 1 : 0,
+          transition:"opacity 1s ease 1.8s",
         }}
       >
         {[
@@ -481,7 +451,7 @@ export default function Hero() {
           { label:"Live Votes",  value:"2.4M", color:"#9B4DFF" },
         ].map(({ label, value, color }, i) => (
           <div key={label} className="flex-1 py-4 text-center"
-            style={{ borderRight: i < 3 ? "1px solid rgba(255,255,255,0.04)" : "none" }}
+            style={{ borderRight: i < 3 ? "1px solid rgba(255,255,255,0.06)" : "none" }}
           >
             <p className="font-black text-xl mb-0.5" style={{ color }}>{value}</p>
             <p className="text-xs tracking-widest uppercase text-white/20">{label}</p>

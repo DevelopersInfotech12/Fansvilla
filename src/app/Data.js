@@ -15,7 +15,6 @@ export const HERO_SLIDES = [
     badge: 'Starts 9th June',
     cta: 'Join the Villa',
     accent: '#FF3CAC',
-    // Replace these src values with your actual banner image paths e.g. '/banners/slide1.jpg'
     image: 'https://placehold.co/1400x700/1a0a2e/FF3CAC?text=INFLUENCER+VILLA+X1',
   },
   {
@@ -50,19 +49,28 @@ export const GAMES = [
 ];
 
 export const XTRA_DOSE = [
-  { label: 'Behind the Entertainment Task', tag: 'BEHIND THE VILLA', color: '#7C3AED' },
-  { label: 'Sun-Sunny: Cyclone & Raining Cakes BTS', tag: 'BEHIND THE VILLA', color: '#DB2777' },
-  { label: 'We Are the Real Ideal Match', tag: 'REALITY CHECK', color: '#D97706' },
+  { youtubeId: "7te0hptyfjs", label: "Xtra Dose Episode 1", color: "#00E5CC" },
+  { youtubeId: "VQan0mTwd-Q", label: "Xtra Dose Episode 2", color: "#FF2D6B" },
+  { youtubeId: "nn7EdwKHOOY", label: "Xtra Dose Episode 3", color: "#F5C518" },
 ];
 
 export const VILLA_BUZZ = [
-  { title: 'Karan Kundrra returns to MTV, joins as co-host of Influencer Villa X1', img: '🎬' },
-  { title: "Sunny: Seen 'MTV Splitsvilla' grow with changing mindsets & modern love", img: '📰' },
-  { title: "'Villa 16' Premiere Date Confirmed: Check Out New Format, Venue & Streaming Details", img: '📅' },
+  {
+    title: 'Karan Kundrra returns to MTV, joins as co-host of Influencer Villa X1',
+    youtubeId: 'hdU3OPLmh0Q',
+  },
+  {
+    title: "Sunny: Seen 'MTV Splitsvilla' grow with changing mindsets & modern love",
+    youtubeId: 'yK_M4IyungM',
+  },
+  {
+    title: "'Villa 16' Premiere Date Confirmed: Check Out New Format, Venue & Streaming Details",
+    youtubeId: 'RwAvCSKzxTY',
+  },
 ];
 
 export const PROMOS = [
-  { label: 'SEASON PROMO', color: '#FF3CAC' },
-  { label: 'PROMO', color: '#7C3AED' },
-  { label: 'Dil ya Deal? Starts 9th Jan!', color: '#2B86C5' },
+  { youtubeId: "FMBqAZl5NiQ", label: "Jalaj Hasija Promo 1", color: "#FF2D6B" },
+  { youtubeId: "FhGFlDK-ySQ", label: "Jalaj Hasija Promo 2", color: "#F5C518" },
+  { youtubeId: "BNggwkAe0sA", label: "Jalaj Hasija Promo 3", color: "#00E5CC" },
 ];
