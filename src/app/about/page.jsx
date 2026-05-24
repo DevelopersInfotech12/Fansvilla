@@ -1,5 +1,5 @@
 import React from 'react'
-import AboutScreen from '../screens/AboutScreen'
+import AboutScreen from "../screens/HomeScreen"
 
 const page = () => {
   return (
