@@ -11,7 +11,15 @@ const FeaturedBannerSlider = () => {
   const [current, setCurrent] = useState(0);
   const [fading, setFading] = useState(false);
   const [paused, setPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const timerRef = useRef(null);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 640);
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const goTo = (idx) => {
     if (fading || idx === current) return;
@@ -39,9 +47,10 @@ const FeaturedBannerSlider = () => {
       <div
         className="relative w-full"
         style={{
-          aspectRatio: "16/5",
-          minHeight: "120px",
-          maxHeight: "420px",
+          height: isMobile ? "150px" : undefined,
+          aspectRatio: isMobile ? "unset" : "16/5",
+          minHeight: isMobile ? "160px" : "120px",
+          maxHeight: isMobile ? "150px" : "420px",
           opacity: fading ? 0 : 1,
           transition: "opacity 0.3s ease",
         }}

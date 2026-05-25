@@ -3,23 +3,38 @@ import { useEffect, useState } from "react";
 import { HERO_TAGLINES, HERO_STATS } from "../Data";
 
 const HERO_IMG = "./hero.png";
+const HERO_IMG_MOBILE = "./heromobile.png";
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
   const [idx, setIdx] = useState(0);
   const [visible, setVisible] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setLoaded(true);
+
+    // Set initial mobile state
+    setIsMobile(window.innerWidth < 640);
+
     const handleMouse = (e) => {
       setMousePos({
         x: (e.clientX / window.innerWidth - 0.5) * 20,
         y: (e.clientY / window.innerHeight - 0.5) * 20,
       });
     };
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
     window.addEventListener("mousemove", handleMouse);
-    return () => window.removeEventListener("mousemove", handleMouse);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("mousemove", handleMouse);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -31,16 +46,23 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] md:min-h-[620px] flex items-center justify-center overflow-hidden" style={{ paddingTop: "108px" }}>
-      {/* Full-bleed background image — img tag instead of bg-image for better mobile control */}
+    <section className="relative min-h-[80svh] md:min-h-[620px] flex items-center justify-center overflow-hidden" style={{ paddingTop: "108px" }}>
+      {/* Full-bleed background image */}
       <div className="absolute inset-0 overflow-hidden">
         <img
-          src={HERO_IMG}
+          src={isMobile ? HERO_IMG_MOBILE : HERO_IMG}
           alt=""
-          className="w-full h-full object-cover object-center"
           style={{
-            transform: `translate(${mousePos.x * 0.15}px, ${mousePos.y * 0.15}px) scale(1.04)`,
-            transition: "transform 0.1s ease-out",
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            // Mobile: "center 35%" pulls the heart shape into viewport center
+            // Desktop: default center with parallax
+            objectPosition: isMobile ? "center center" : "center center",
+            transform: isMobile
+              ? "none"
+              : `translate(${mousePos.x * 0.15}px, ${mousePos.y * 0.15}px) scale(1.04)`,
+            transition: isMobile ? "none" : "transform 0.1s ease-out",
           }}
         />
       </div>
@@ -94,8 +116,8 @@ const Hero = () => {
       {/* Main content */}
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto w-full">
         <h1
-          className={`font-black leading-none tracking-tight mb-4 transition-all duration-1000 delay-200 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
-          style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(3.2rem, 10vw, 9rem)", textShadow: "0 4px 40px rgba(0,0,0,0.6)" }}
+          className={`font-black leading-none tracking-tight text-[40px] sm:text-[80px] mb-4 transition-all duration-1000 delay-200 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
+          style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 4px 40px rgba(0,0,0,0.6)" }}
         >
           <span className="text-white">BLINDFOLD</span>
           <br />
@@ -106,13 +128,13 @@ const Hero = () => {
           className={`text-sm md:text-lg max-w-xl mx-auto mb-10 leading-relaxed transition-all duration-1000 delay-400 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           style={{ color: "#c9a84c", fontWeight: 300 }}
         >
-          India&apos;s most electrifying influencer reality show. 20 creators. One villa. Zero rules. Only one couple walks away with ₹25 Lakhs.
+          India’s hottest influencer reality show — 20 creators, one villa, one winning couple.
         </p>
 
         {/* CTAs */}
         <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-1000 delay-600 ${loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <button
-            className="w-full sm:w-auto px-10 py-4 text-white font-bold text-sm tracking-[0.2em] uppercase rounded-full hover:scale-105 transition-all duration-300"
+            className=" sm:w-auto sm:px-10 px-4 py-4 text-white font-bold text-xs sm:text-sm tracking-[0.2em] uppercase rounded-full hover:scale-105 transition-all duration-300"
             style={{ background: "#c9a84c", boxShadow: "0 8px 32px rgba(185,28,58,0.55)" }}
             onMouseEnter={e => e.currentTarget.style.boxShadow = "0 12px 40px rgba(185,28,58,0.75)"}
             onMouseLeave={e => e.currentTarget.style.boxShadow = "0 8px 32px rgba(185,28,58,0.55)"}
