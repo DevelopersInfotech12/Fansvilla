@@ -1,19 +1,22 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Splitsvilla X — Where Influence Meets Desire",
-  description: "India's most electrifying influencer reality show. Season 14 now casting.",
+  title: "Splitvilla — Influencer Reality Show",
+  description: "India's most electrifying influencer reality show.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body>{children}</body>
+      <body className="antialiased">
+        {children}
+      </body>
     </html>
   );
 }

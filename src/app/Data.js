@@ -1,76 +1,143 @@
-// ─── Shared Data ─────────────────────────────────────────────────────────────
+// ─── Splitsvilla Influencer Data ─────────────────────────────────────────────
 
 export const NAV_LINKS = [
-  { label: 'Villa Playzone', sub: ['Games', 'Leaderboard', 'Challenges'] },
-  { label: 'Hot Drops', sub: ['Latest Episodes', 'Clips', 'Behind the Villa'] },
-  { label: 'Villa Buzz', sub: null },
+  { label: "Villa", href: "#villa" },
+  { label: "Contestants", href: "#contestants" },
+  { label: "Challenges", href: "#challenges" },
+  { label: "Leaderboard", href: "#leaderboard" },
 ];
 
-export const HERO_SLIDES = [
+export const HERO_TAGLINES = [
+  "Find Your Match.",
+  "Rule The Villa.",
+  "Own The Game.",
+];
+
+export const HERO_STATS = [
+  { num: "20", label: "Influencers" },
+  { num: "90", label: "Days" },
+  { num: "₹25L", label: "Prize" },
+];
+
+export const CONTESTANTS = [
   {
-    tag: '🔥 NEW SEASON',
-    title: 'INFLUENCER VILLA',
-    sub: 'X1',
-    desc: 'Top 100 players win exclusive merch + Meet & Greet with your fav creators!',
-    badge: 'Starts 9th June',
-    cta: 'Join the Villa',
-    accent: '#FF3CAC',
-    image: 'https://placehold.co/1400x700/1a0a2e/FF3CAC?text=INFLUENCER+VILLA+X1',
+    name: "Ananya Sharma",
+    handle: "@ananya.glam",
+    followers: "4.2M",
+    category: "Fashion",
+    emoji: "👑",
+    color: "from-rose-500 to-pink-700",
+    status: "Villa",
   },
   {
-    tag: '🎮 PLAY & WIN',
-    title: 'READY SET GO!',
-    sub: '',
-    desc: 'Sign up, play 6 crazy-fun games, stack points & climb the leaderboard.',
-    badge: 'Top 10 Win Merch',
-    cta: 'Play Now',
-    accent: '#784BA0',
-    image: 'https://placehold.co/1400x700/1a0a2e/784BA0?text=PLAY+%26+WIN',
+    name: "Rohan Kapoor",
+    handle: "@rohan.fitness",
+    followers: "3.8M",
+    category: "Fitness",
+    emoji: "💪",
+    color: "from-amber-500 to-orange-700",
+    status: "Villa",
   },
   {
-    tag: '📲 FANSVILLA',
-    title: 'YOUR HANGOUT',
-    sub: '',
-    desc: 'Watch more content, earn more points, level up even faster.',
-    badge: '₹7000 Vouchers',
-    cta: 'Explore',
-    accent: '#2B86C5',
-    image: 'https://placehold.co/1400x700/1a0a2e/2B86C5?text=YOUR+HANGOUT',
+    name: "Priya Nair",
+    handle: "@priya.beats",
+    followers: "6.1M",
+    category: "Music",
+    emoji: "🎤",
+    color: "from-violet-500 to-purple-700",
+    status: "Wild Card",
+  },
+  {
+    name: "Dev Malhotra",
+    handle: "@devchef",
+    followers: "2.9M",
+    category: "Food",
+    emoji: "🍳",
+    color: "from-emerald-500 to-teal-700",
+    status: "Villa",
+  },
+  {
+    name: "Simran Bedi",
+    handle: "@simran.travel",
+    followers: "5.3M",
+    category: "Travel",
+    emoji: "✈️",
+    color: "from-cyan-500 to-blue-700",
+    status: "Eliminated",
+  },
+  {
+    name: "Karan Mehta",
+    handle: "@karan.tech",
+    followers: "1.8M",
+    category: "Tech",
+    emoji: "⚡",
+    color: "from-yellow-500 to-amber-700",
+    status: "Villa",
   },
 ];
 
-export const GAMES = [
-  { icon: '🏆', label: 'Splits Premier League', color: '#7C3AED' },
-  { icon: '💘', label: 'Ideal Match', color: '#DB2777' },
-  { icon: '💰', label: 'Pyaar Ya Paisa Calc', color: '#D97706' },
-  { icon: '🎯', label: 'Dare Challenge', color: '#059669' },
-  { icon: '⚡', label: 'Speed Round', color: '#DC2626' },
-  { icon: '🌟', label: 'Fan Trivia', color: '#2563EB' },
-];
+export const STATUS_COLORS = {
+  Villa: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
+  "Wild Card": "bg-rose-500/20 text-rose-400 border-rose-500/30",
+  Eliminated: "bg-white/10 text-white/40 border-white/20",
+};
 
-export const XTRA_DOSE = [
-  { youtubeId: "7te0hptyfjs", label: "Xtra Dose Episode 1", color: "#00E5CC" },
-  { youtubeId: "VQan0mTwd-Q", label: "Xtra Dose Episode 2", color: "#FF2D6B" },
-  { youtubeId: "nn7EdwKHOOY", label: "Xtra Dose Episode 3", color: "#F5C518" },
-];
-
-export const VILLA_BUZZ = [
+export const CHALLENGES = [
   {
-    title: 'Karan Kundrra returns to MTV, joins as co-host of Influencer Villa X1',
-    youtubeId: 'hdU3OPLmh0Q',
+    title: "Reel War",
+    desc: "Create a viral reel in 60 mins. Most views wins immunity.",
+    icon: "🎬",
+    prize: "Immunity + Golden Key",
+    ends: "2h 14m",
   },
   {
-    title: "Sunny: Seen 'MTV Splitsvilla' grow with changing mindsets & modern love",
-    youtubeId: 'yK_M4IyungM',
+    title: "Style Duel",
+    desc: "Style your partner with villa wardrobe. Oracle picks the winner.",
+    icon: "👗",
+    prize: "₹1 Lakh + Safe Pass",
+    ends: "Tomorrow",
   },
   {
-    title: "'Villa 16' Premiere Date Confirmed: Check Out New Format, Venue & Streaming Details",
-    youtubeId: 'RwAvCSKzxTY',
+    title: "Followers Faceoff",
+    desc: "Go live. Whoever gains more followers in 30 mins stays.",
+    icon: "📱",
+    prize: "Stay in Villa",
+    ends: "3 days",
   },
 ];
 
-export const PROMOS = [
-  { youtubeId: "FMBqAZl5NiQ", label: "Jalaj Hasija Promo 1", color: "#FF2D6B" },
-  { youtubeId: "FhGFlDK-ySQ", label: "Jalaj Hasija Promo 2", color: "#F5C518" },
-  { youtubeId: "BNggwkAe0sA", label: "Jalaj Hasija Promo 3", color: "#00E5CC" },
+export const COUPLES = [
+  {
+    rank: 1,
+    names: "Ananya & Rohan",
+    handles: "@ananya.glam + @rohan.fitness",
+    score: 9840,
+    trend: "+214",
+    hearts: 97,
+    emoji1: "👑",
+    emoji2: "💪",
+    color: "from-rose-500 to-amber-500",
+  },
+  {
+    rank: 2,
+    names: "Priya & Dev",
+    handles: "@priya.beats + @devchef",
+    score: 8720,
+    trend: "+89",
+    hearts: 91,
+    emoji1: "🎤",
+    emoji2: "🍳",
+    color: "from-violet-500 to-pink-500",
+  },
+  {
+    rank: 3,
+    names: "Simran & Karan",
+    handles: "@simran.travel + @karan.tech",
+    score: 7310,
+    trend: "-42",
+    hearts: 83,
+    emoji1: "✈️",
+    emoji2: "⚡",
+    color: "from-cyan-500 to-blue-500",
+  },
 ];

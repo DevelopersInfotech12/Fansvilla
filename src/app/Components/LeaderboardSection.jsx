@@ -1,111 +1,126 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { COUPLES } from "../Data";
 
-const leaders = [
-  { name: "Aarav Singh", score: 98420, delta: "+1,230", up: true },
-  { name: "Priya Sharma", score: 87650, delta: "+890", up: true },
-  { name: "Karan Mehta", score: 81200, delta: "-320", up: false },
-  { name: "Sneha Rao", score: 74800, delta: "+2,100", up: true },
-  { name: "Dev Kapoor", score: 68500, delta: "+450", up: true },
-];
-
-const medalColors = ["text-yellow-400", "text-gray-300", "text-amber-600"];
-const medalEmoji = ["🥇", "🥈", "🥉"];
+const LEADERBOARD_BANNER = "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1920&q=80&fit=crop";
 
 const LeaderboardSection = () => {
-  const [visible, setVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.2 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
   return (
-    <section className="py-24 px-6 bg-black relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent" />
+    <section id="leaderboard" className="py-12 px-4 relative overflow-hidden" style={{ color: "#ffffff" }}>
 
-      {/* Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[160px] opacity-10 bg-orange-500 pointer-events-none" />
+      {/* BG */}
+      <div className="absolute inset-0 z-0">
+        <img src={LEADERBOARD_BANNER} alt="" className="w-full h-full object-cover"
+          style={{ filter: "brightness(0.9) saturate(1.3)" }} />
+        <div className="absolute inset-0"
+          style={{ background: "linear-gradient(180deg, #1a1020 0%, rgba(26,16,32,0.7) 50%, #1a1020 100%)" }} />
+      </div>
 
-      <div className="max-w-4xl mx-auto">
-        <div
-          ref={ref}
-          className={`text-center mb-16 transition-all duration-1000 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-        >
-          <span className="text-yellow-400 text-xs font-bold tracking-[0.4em] uppercase">Rankings</span>
-          <h2 className="mt-3 text-5xl md:text-6xl font-black text-white">
-            Leaderboard
-          </h2>
-          <p className="mt-4 text-gray-500">Real-time influence rankings. Updated every hour.</p>
+      <div className="max-w-4xl mx-auto relative z-10">
+        {/* Banner */}
+        <div className="relative w-full h-44 mb-16 overflow-hidden rounded-3xl">
+          <img src={LEADERBOARD_BANNER} alt="Leaderboard banner" className="w-full h-full object-cover"
+            style={{ filter: "brightness(0.4) saturate(1.2)", objectPosition: "center 40%" }} />
+          <div className="absolute inset-0"
+            style={{ background: "linear-gradient(to right, rgba(30,22,34,0.95) 0%, rgba(30,22,34,0.6) 60%, rgba(30,22,34,0.2) 100%)" }} />
+          <div className="absolute inset-0 flex flex-col justify-center px-10">
+            <div className="inline-flex items-center gap-3 mb-3">
+              <div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, #c9a84c)" }} />
+              <span className="text-xs font-semibold tracking-[0.3em] uppercase" style={{ color: "#c9a84c" }}>Power Rankings</span>
+            </div>
+            <h2 className="font-black leading-tight text-white" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 5vw, 3.5rem)" }}>
+              Couple <span className="shimmer-text italic">Scoreboard</span>
+            </h2>
+            <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.6)", fontWeight: 300 }}>
+              Updated every 6 hours. Public votes + challenge wins combined.
+            </p>
+          </div>
         </div>
 
-        {/* Table */}
-        <div className="space-y-3">
-          {leaders.map((l, i) => (
+        <div className="space-y-4">
+          {COUPLES.map((c) => (
             <div
-              key={l.name}
-              className={`group flex items-center gap-4 p-5 rounded-2xl border transition-all duration-700 hover:scale-[1.02] cursor-pointer ${
-                i === 0
-                  ? "bg-gradient-to-r from-yellow-500/15 to-orange-500/10 border-yellow-500/30 hover:border-yellow-500/60"
-                  : "bg-white/5 border-white/10 hover:border-white/20"
-              } ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              key={c.rank}
+              className="relative rounded-2xl p-5 md:p-6 overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
+              style={{
+                background: c.rank === 1 ? "rgba(201,168,76,0.12)" : "rgba(255,255,255,0.04)",
+                border: c.rank === 1 ? "1px solid rgba(201,168,76,0.4)" : "1px solid rgba(255,255,255,0.09)",
+                boxShadow: c.rank === 1 ? "0 8px 40px rgba(201,168,76,0.12)" : "none",
+              }}
             >
-              {/* Rank */}
-              <div className="w-10 text-center">
-                {i < 3 ? (
-                  <span className="text-2xl">{medalEmoji[i]}</span>
-                ) : (
-                  <span className="text-lg font-black text-gray-600">#{i + 1}</span>
-                )}
-              </div>
+              {c.rank === 1 && (
+                <div className="absolute top-0 left-0 right-0 h-px"
+                  style={{ background: "linear-gradient(90deg, transparent, #c9a84c, transparent)" }} />
+              )}
 
-              {/* Avatar */}
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center font-black text-white text-sm shadow-lg ${
-                i === 0 ? "bg-gradient-to-br from-yellow-500 to-orange-600 shadow-yellow-500/40" :
-                i === 1 ? "bg-gradient-to-br from-gray-400 to-gray-600" :
-                "bg-gradient-to-br from-orange-800 to-orange-600"
-              }`}>
-                {l.name.split(" ").map(n => n[0]).join("")}
-              </div>
-
-              {/* Name */}
-              <div className="flex-1">
-                <div className="text-white font-bold text-base">{l.name}</div>
-                <div className="text-gray-600 text-xs">Influence Score</div>
-              </div>
-
-              {/* Delta */}
-              <div className={`text-sm font-bold ${l.up ? "text-green-400" : "text-red-400"}`}>
-                {l.delta}
-              </div>
-
-              {/* Score */}
-              <div className="text-right">
-                <div className={`text-xl font-black ${i === 0 ? "bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent" : "text-white"}`}>
-                  {l.score.toLocaleString()}
-                </div>
-                <div className="text-gray-600 text-xs">pts</div>
-              </div>
-
-              {/* Progress bar */}
-              <div className="hidden md:block w-24 h-1.5 bg-white/10 rounded-full overflow-hidden">
+              <div className="flex items-center gap-4">
                 <div
-                  className={`h-full rounded-full ${i === 0 ? "bg-gradient-to-r from-yellow-400 to-orange-500" : "bg-gradient-to-r from-orange-600 to-pink-600"}`}
-                  style={{ width: `${(l.score / 100000) * 100}%`, transition: "width 1.5s ease" }}
-                />
+                  className="w-10 h-10 rounded-xl flex items-center justify-center font-black text-sm flex-shrink-0"
+                  style={{
+                    background: c.rank === 1 ? "linear-gradient(135deg, #c9a84c, #e8c97a)" : "var(--border-faint)",
+                    color: c.rank === 1 ? "var(--bg-deep)" : "rgba(255,255,255,0.6)",
+                    border: c.rank === 1 ? "none" : "1px solid rgba(255,255,255,0.12)",
+                  }}
+                >
+                  {c.rank === 1 ? "👑" : `#${c.rank}`}
+                </div>
+
+                <div className="flex -space-x-3 flex-shrink-0">
+                  <div className="w-11 h-11 rounded-full flex items-center justify-center text-xl shadow-lg"
+                    style={{ background: "linear-gradient(135deg, rgba(185,28,58,0.5), rgba(201,168,76,0.4))", border: "2px solid var(--bg-mid)" }}>
+                    {c.emoji1}
+                  </div>
+                  <div className="w-11 h-11 rounded-full flex items-center justify-center text-xl shadow-lg"
+                    style={{ background: "var(--border-faint)", border: "2px solid var(--bg-mid)" }}>
+                    {c.emoji2}
+                  </div>
+                </div>
+
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-bold text-base truncate text-white">{c.names}</h3>
+                  <p className="text-xs truncate" style={{ color: "rgba(253, 187, 3, 0.55)" }}>{c.handles}</p>
+                </div>
+
+                <div className="hidden sm:flex items-center gap-6">
+                  <div className="text-center">
+                    <div className="font-black text-lg" style={{ color: c.rank === 1 ? "#e8c97a" : "#fff" }}>{c.score.toLocaleString()}</div>
+                    <div className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>Score</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-bold text-sm" style={{ color: c.trend.startsWith("+") ? "#34d399" : "#ef3a5a" }}>{c.trend}</div>
+                    <div className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>Today</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-black text-lg" style={{ color: "#ef3a5a" }}>❤️ {c.hearts}%</div>
+                    <div className="text-xs" style={{ color: "rgba(255,255,255,0.35)" }}>Love</div>
+                  </div>
+                </div>
+
+                <button
+                  className="text-xs font-bold px-4 py-2 rounded-full hover:scale-105 transition-transform flex-shrink-0"
+                  style={{
+                    background: c.rank === 1 ? "linear-gradient(135deg, #c9a84c, #b91c3a)" : "var(--border-faint)",
+                    color: c.rank === 1 ? "var(--bg-deep)" : "rgba(255,255,255,0.6)",
+                    border: c.rank === 1 ? "none" : "1px solid rgba(255,255,255,0.14)",
+                    fontWeight: 700,
+                  }}
+                >
+                  Vote
+                </button>
+              </div>
+
+              <div className="sm:hidden flex items-center justify-between mt-4 pt-4"
+                style={{ borderTop: "1px solid var(--border-faint)" }}>
+                <span className="font-bold" style={{ color: "#ffffff" }}>{c.score.toLocaleString()} pts</span>
+                <span className="text-sm font-semibold" style={{ color: c.trend.startsWith("+") ? "#34d399" : "#ef3a5a" }}>{c.trend} today</span>
+                <span className="text-sm" style={{ color: "#ef3a5a" }}>❤️ {c.hearts}%</span>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-10">
-          <button className="px-10 py-4 rounded-full border border-yellow-500/40 text-yellow-400 font-black text-sm tracking-widest uppercase hover:bg-yellow-500/10 transition-all duration-300">
-            Full Leaderboard →
-          </button>
-        </div>
+        <p className="text-center text-xs mt-6" style={{ color: "rgba(255,255,255,0.25)" }}>
+          Next update in 3h 42m &bull; 14,832 votes cast today
+        </p>
       </div>
     </section>
   );
