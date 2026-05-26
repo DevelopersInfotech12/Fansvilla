@@ -1,143 +1,134 @@
-// ─── Splitsvilla Influencer Data ─────────────────────────────────────────────
+// ─── Blindfold Villa Data ─────────────────────────────────────────────────────
 
 export const NAV_LINKS = [
-  { label: "Villa", href: "#villa" },
+  { label: "About",       href: "#about" },
   { label: "Contestants", href: "#contestants" },
-  { label: "Challenges", href: "#challenges" },
-  { label: "Leaderboard", href: "#leaderboard" },
+  { label: "Episodes",    href: "#episodes" },
+  { label: "Tasks",       href: "#tasks" },
+  { label: "Scoreboard",  href: "#scoreboard" },
 ];
 
 export const HERO_TAGLINES = [
-  "Find Your Match.",
-  "Rule The Villa.",
-  "Own The Game.",
-];
-
-export const HERO_STATS = [
-  { num: "20", label: "Influencers" },
-  { num: "90", label: "Days" },
-  { num: "₹25L", label: "Prize" },
+  "8 Strangers. Aankhein Band. Ek Villa.",
+  "Aankhein Band. Dil Khula.",
+  "The Ultimate Test of Love.",
 ];
 
 export const CONTESTANTS = [
   {
-    name: "Ananya Sharma",
-    handle: "@ananya.glam",
-    followers: "4.2M",
-    category: "Fashion",
-    emoji: "👑",
+    name: "Contestant 1",
+    oneliner: "Dil se connected, aankhon se nahi",
+    gender: "male",
     color: "from-rose-500 to-pink-700",
-    status: "Villa",
   },
   {
-    name: "Rohan Kapoor",
-    handle: "@rohan.fitness",
-    followers: "3.8M",
-    category: "Fitness",
-    emoji: "💪",
+    name: "Contestant 2",
+    oneliner: "Dil se connected, aankhon se nahi",
+    gender: "female",
     color: "from-amber-500 to-orange-700",
-    status: "Villa",
   },
   {
-    name: "Priya Nair",
-    handle: "@priya.beats",
-    followers: "6.1M",
-    category: "Music",
-    emoji: "🎤",
+    name: "Contestant 3",
+    oneliner: "Dil se connected, aankhon se nahi",
+    gender: "male",
     color: "from-violet-500 to-purple-700",
-    status: "Wild Card",
   },
   {
-    name: "Dev Malhotra",
-    handle: "@devchef",
-    followers: "2.9M",
-    category: "Food",
-    emoji: "🍳",
+    name: "Contestant 4",
+    oneliner: "Dil se connected, aankhon se nahi",
+    gender: "female",
     color: "from-emerald-500 to-teal-700",
-    status: "Villa",
   },
   {
-    name: "Simran Bedi",
-    handle: "@simran.travel",
-    followers: "5.3M",
-    category: "Travel",
-    emoji: "✈️",
+    name: "Contestant 5",
+    oneliner: "Dil se connected, aankhon se nahi",
+    gender: "male",
     color: "from-cyan-500 to-blue-700",
-    status: "Eliminated",
   },
   {
-    name: "Karan Mehta",
-    handle: "@karan.tech",
-    followers: "1.8M",
-    category: "Tech",
-    emoji: "⚡",
+    name: "Contestant 6",
+    oneliner: "Dil se connected, aankhon se nahi",
+    gender: "female",
     color: "from-yellow-500 to-amber-700",
-    status: "Villa",
+  },
+  {
+    name: "Contestant 7",
+    oneliner: "Dil se connected, aankhon se nahi",
+    gender: "male",
+    color: "from-red-500 to-rose-700",
+  },
+  {
+    name: "Contestant 8",
+    oneliner: "Dil se connected, aankhon se nahi",
+    gender: "female",
+    color: "from-fuchsia-500 to-pink-700",
   },
 ];
 
-export const STATUS_COLORS = {
-  Villa: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
-  "Wild Card": "bg-rose-500/20 text-rose-400 border-rose-500/30",
-  Eliminated: "bg-white/10 text-white/40 border-white/20",
-};
-
-export const CHALLENGES = [
+export const TASKS = [
   {
-    title: "Reel War",
-    desc: "Create a viral reel in 60 mins. Most views wins immunity.",
-    icon: "🎬",
-    prize: "Immunity + Golden Key",
-    ends: "2h 14m",
+    icon: "👁️",
+    title: "Blindfold Touch Identification",
+    desc: "Aankhein band — sirf touch se partner ka unique feature pehchano aur describe karo",
   },
   {
-    title: "Style Duel",
-    desc: "Style your partner with villa wardrobe. Oracle picks the winner.",
-    icon: "👗",
-    prize: "₹1 Lakh + Safe Pass",
-    ends: "Tomorrow",
+    icon: "🧊",
+    title: "Baraf Paani",
+    desc: "Barf ke thande paani mein se real coins nikalo — 45 seconds — coins pe Vaseline lagi hai — almost impossible",
   },
   {
-    title: "Followers Faceoff",
-    desc: "Go live. Whoever gains more followers in 30 mins stays.",
-    icon: "📱",
-    prize: "Stay in Villa",
-    ends: "3 days",
+    icon: "⚽",
+    title: "I Got The Balls",
+    desc: "Dono partners ka ek ek haath aapas mein bandha tha — sirf ek free haath se 20 balls collect karni thi — time ke against",
+  },
+  {
+    icon: "💦",
+    title: "Get Wet Soon",
+    desc: "Pool related water challenge — blindfold mein speed aur coordination ka ultimate test",
   },
 ];
 
-export const COUPLES = [
+export const EPISODES = [
   {
-    rank: 1,
-    names: "Ananya & Rohan",
-    handles: "@ananya.glam + @rohan.fitness",
-    score: 9840,
-    trend: "+214",
-    hearts: 97,
-    emoji1: "👑",
-    emoji2: "💪",
-    color: "from-rose-500 to-amber-500",
+    title: "Episode 1",
+    tag: "Ep 1",
+    youtubeUrl: "https://youtube.com",
+    views: "1.2M",
+    desc: "8 strangers meet for the first time — blindfolded. The journey begins.",
   },
   {
-    rank: 2,
-    names: "Priya & Dev",
-    handles: "@priya.beats + @devchef",
-    score: 8720,
-    trend: "+89",
-    hearts: 91,
-    emoji1: "🎤",
-    emoji2: "🍳",
-    color: "from-violet-500 to-pink-500",
+    title: "Episode 2",
+    tag: "Ep 2",
+    youtubeUrl: "https://youtube.com",
+    views: "980K",
+    desc: "Tasks intensify. Connections deepen. Who will trust the feeling?",
   },
   {
-    rank: 3,
-    names: "Simran & Karan",
-    handles: "@simran.travel + @karan.tech",
-    score: 7310,
-    trend: "-42",
-    hearts: 83,
-    emoji1: "✈️",
-    emoji2: "⚡",
-    color: "from-cyan-500 to-blue-500",
+    title: "Episode 3",
+    tag: "Ep 3",
+    youtubeUrl: "https://youtube.com",
+    views: "1.5M",
+    desc: "The finale — blindfolds off. Hearts revealed. The ultimate test of love.",
   },
+];
+
+export const SPONSORS = [
+  { name: "Green Gainz", tagline: "Co-Powered By" },
+  { name: "Hriday Bhoomi", tagline: "Venue Partner" },
+];
+
+export const SOCIAL_LINKS = [
+  { label: "Instagram", handle: "@blindfoldvilla", url: "https://instagram.com/blindfoldvilla", icon: "IG" },
+  { label: "Instagram", handle: "@jalajhasija", url: "https://instagram.com/jalajhasija", icon: "IG" },
+  { label: "YouTube", handle: "Jalaj Hasija Vlogs", url: "https://youtube.com", icon: "YT" },
+  { label: "Twitter/X", handle: "@JalajHasija", url: "https://twitter.com/jalajhasija", icon: "X" },
+];
+
+export const NOTIFICATIONS = [
+  "🔥 India ka pehla Blindfold Reality Show — Season 1 Now Streaming!",
+  "👁️ 8 Strangers · Aankhein Band · Ek Villa — The Ultimate Test of Love",
+  "📍 Shot at Hriday Bhoomi Resort, Jim Corbett, Uttarakhand",
+  "🎬 Episode 1 OUT NOW — Watch on YouTube @ Jalaj Hasija Vlogs",
+  "💫 Season 2 Coming Soon — Register now to get notified first!",
+  "❤️ Follow @blindfoldvilla on Instagram for BTS content",
 ];

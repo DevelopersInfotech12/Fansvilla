@@ -1,8 +1,11 @@
 import "./globals.css";
+import TopBar from "./Components/TopBar";
+import Navbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 export const metadata = {
-  title: "Splitvilla — Influencer Reality Show",
-  description: "India's most electrifying influencer reality show.",
+  title: "Blindfold Villa — India's First Blindfold Reality Show",
+  description: "8 Strangers. Aankhein Band. Ek Villa. The Ultimate Test of Love.",
 };
 
 export default function RootLayout({ children }) {
@@ -15,7 +18,10 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
+        <TopBar />
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

@@ -1,32 +1,33 @@
-"use client";
+import Hero from "../Components/Hero";
+import AboutSection from "../Components/AboutSection";
+import ContestantsSection from "../Components/ContestantsSection";
+import EpisodesSection from "../Components/EpisodesSection";
+import ChallengesSection from "../Components/ChallengesSection";
+import ScoreboardSection from "../Components/ScoreboardSection";
+import SponsorsSection from "../Components/SponsorsSection";
+import Season2Section from "../Components/Season2Section";
+import BannerSlider from "../Components/BannerSlider";
+import BannerImageSlider from "../Components/BannerImageSlider";
 
-import React from 'react';
-import TopBar from '../Components/TopBar';
-import Navbar from '../Components/Navbar';
-import Hero from '../Components/Hero';
-import PromoSlider from '../Components/PromoSlider';
-import ContestantsSection from '../Components/ContestantsSection';
-import ChallengesSection from '../Components/ChallengesSection';
-import LeaderboardSection from '../Components/LeaderboardSection';
-import ApplyCTA from '../Components/ApplyCTA';
-import Footer from '../Components/Footer';
-import FeaturedBannerSlider from '../Components/FeaturedBannerSlider';
+const BANNERS = [
+  "/banner1.png",
+  "/bannernew3.png",
+  // "/images/banner3.png",
+];
 
-const HomeScreen = () => {
-  return (
-    <div className="min-h-screen" style={{ background: "var(--bg-deep)" }}>
-      <TopBar />
-      <Navbar />
-      <Hero />
-      <FeaturedBannerSlider />
-      <PromoSlider />
-      <ContestantsSection />
-      <ChallengesSection />
-      <LeaderboardSection />
-      <ApplyCTA />
-      <Footer />
-    </div>
-  );
-};
+const HomeScreen = () => (
+  <main>
+    <Hero />
+    <AboutSection />
+    <BannerImageSlider images={BANNERS} interval={4000} height="500px" />
+    <BannerSlider />
+    <ContestantsSection />
+    <EpisodesSection />
+    <ChallengesSection />
+    <ScoreboardSection />
+    <SponsorsSection />
+    <Season2Section />
+  </main>
+);
 
 export default HomeScreen;
