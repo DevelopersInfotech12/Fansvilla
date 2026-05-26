@@ -7,18 +7,16 @@ import { useState, useEffect, useRef, useCallback } from "react";
  * Props:
  *   images: string[]   — array of image src URLs (required)
  *   interval?: number  — auto-advance ms (default 5000)
- *   height?: string    — CSS height value (default "clamp(420px, 55vw, 700px)")
+ *
+ * Image height is fully automatic — driven by the image's natural
+ * aspect ratio. Zero blank space top or bottom.
  *
  * Usage:
  *   const BANNERS = ["/banner1.jpg", "/banner2.jpg", "/banner3.jpg"];
  *   <BannerImageSlider images={BANNERS} />
  */
 
-const BannerImageSlider = ({
-  images = [],
-  interval = 5000,
-  height="300px"
-}) => {
+const BannerImageSlider = ({ images = [], interval = 5000 }) => {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [fade, setFade] = useState(true);
@@ -29,13 +27,12 @@ const BannerImageSlider = ({
     (idx) => {
       if (animating || idx === current || total === 0) return;
       setAnimating(true);
-      setFade(false); // start fade out
-
+      setFade(false);
       setTimeout(() => {
         setCurrent((idx + total) % total);
-        setFade(true); // fade in new slide
+        setFade(true);
         setTimeout(() => setAnimating(false), 600);
-      }, 350);
+      }, 300);
     },
     [animating, current, total]
   );
@@ -43,14 +40,12 @@ const BannerImageSlider = ({
   const next = useCallback(() => goTo(current + 1), [goTo, current]);
   const prev = useCallback(() => goTo(current - 1), [goTo, current]);
 
-  // Auto-advance
   useEffect(() => {
     if (total <= 1) return;
     timerRef.current = setInterval(next, interval);
     return () => clearInterval(timerRef.current);
   }, [next, interval, total]);
 
-  // Keyboard nav
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === "ArrowRight") next();
@@ -60,251 +55,132 @@ const BannerImageSlider = ({
     return () => window.removeEventListener("keydown", onKey);
   }, [next, prev]);
 
-  if (total === 0) {
-    return (
-      <div
-        style={{
-          height,
-          background: "#0d0507",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "rgba(255,255,255,0.3)",
-          fontFamily: "'DM Sans', sans-serif",
-          fontSize: "0.9rem",
-          letterSpacing: "0.2em",
-        }}
-      >
-        NO IMAGES PROVIDED
-      </div>
-    );
-  }
+  if (total === 0) return null;
 
   return (
-    <section
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        height,
-        background: "#050000",
-        userSelect: "none",
-      }}
-    >
-      {/* Gold top edge */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "2px",
-          background:
-            "linear-gradient(90deg, transparent 0%, #c9a84c 40%, #8b0000 60%, transparent 100%)",
-          zIndex: 20,
-        }}
-      />
+    <section style={{ position: "relative", background: "#050000", userSelect: "none", lineHeight: 0, marginTop: "50px"}}>
 
-      {/* Slide image */}
+      {/* Gold top edge */}
+      <div style={{
+        position: "absolute", top: 0, left: 0, right: 0, height: "2px", zIndex: 20,
+        background: "linear-gradient(90deg, transparent 0%, #c9a84c 40%, #8b0000 60%, transparent 100%)",
+      }} />
+
+      {/* Image — width:100%, height:auto = natural size, zero gaps */}
       <img
         key={current}
         src={images[current]}
         alt={`Banner ${current + 1}`}
         draggable={false}
         style={{
-          position: "absolute",
-          inset: 0,
-          width: "100%",
-          height: "100%",
+          display: "block",
+          width: "90%",
+          height: "auto",
+          margin: "0 auto", // centers horizontally
           opacity: fade ? 1 : 0,
-          transition: "opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
-          willChange: "opacity",
-          objectFit: "contain",
-objectPosition: "center",
-background: "#050000", // fills side gaps
+          transition: "opacity 0.5s ease",
         }}
       />
 
-      {/* Subtle dark vignette overlay — keeps edges dark like existing design */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(5,0,0,0.55) 100%)",
-          pointerEvents: "none",
-          zIndex: 5,
-        }}
-      />
-      {/* Bottom fade to match sections below */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "120px",
-          background:
-            "linear-gradient(to bottom, transparent, rgba(5,0,0,0.85))",
-          pointerEvents: "none",
-          zIndex: 5,
-        }}
-      />
+      {/* Bottom fade overlay */}
+      <div style={{
+        position: "absolute", bottom: 0, left: 0, right: 0, height: "80px", zIndex: 5,
+        background: "linear-gradient(to bottom, transparent, rgba(5,0,0,0.8))",
+        pointerEvents: "none",
+      }} />
 
-      {/* Prev Arrow */}
+      {/* Prev arrow */}
       {total > 1 && (
-        <button
-          onClick={prev}
-          aria-label="Previous banner"
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "20px",
-            transform: "translateY(-50%)",
-            zIndex: 30,
-            width: "44px",
-            height: "44px",
-            borderRadius: "50%",
-            background: "rgba(5,0,0,0.45)",
-            border: "1px solid rgba(201,168,76,0.25)",
-            color: "rgba(255,255,255,0.6)",
-            fontSize: "1rem",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backdropFilter: "blur(8px)",
-            transition: "all 0.25s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "rgba(201,168,76,0.7)";
-            e.currentTarget.style.color = "#c9a84c";
-            e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "rgba(201,168,76,0.25)";
-            e.currentTarget.style.color = "rgba(255,255,255,0.6)";
-            e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-          }}
-        >
-          ←
-        </button>
+        <button onClick={prev} aria-label="Previous" style={arrowStyle("left")}>←</button>
       )}
 
-      {/* Next Arrow */}
+      {/* Next arrow */}
       {total > 1 && (
-        <button
-          onClick={next}
-          aria-label="Next banner"
-          style={{
-            position: "absolute",
-            top: "50%",
-            right: "20px",
-            transform: "translateY(-50%)",
-            zIndex: 30,
-            width: "44px",
-            height: "44px",
-            borderRadius: "50%",
-            background: "rgba(5,0,0,0.45)",
-            border: "1px solid rgba(201,168,76,0.25)",
-            color: "rgba(255,255,255,0.6)",
-            fontSize: "1rem",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backdropFilter: "blur(8px)",
-            transition: "all 0.25s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "rgba(201,168,76,0.7)";
-            e.currentTarget.style.color = "#c9a84c";
-            e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "rgba(201,168,76,0.25)";
-            e.currentTarget.style.color = "rgba(255,255,255,0.6)";
-            e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-          }}
-        >
-          →
-        </button>
+        <button onClick={next} aria-label="Next" style={arrowStyle("right")}>→</button>
       )}
 
-      {/* Bottom controls: dots + counter */}
+      {/* Dots + counter */}
       {total > 1 && (
-        <div
-          style={{
-            position: "absolute",
-            bottom: "22px",
-            left: 0,
-            right: 0,
-            zIndex: 30,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "10px",
-          }}
-        >
-          {/* Dot pills */}
-          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+        <div style={{
+          position: "absolute", bottom: "16px", left: 0, right: 0, zIndex: 30,
+          display: "flex", flexDirection: "column", alignItems: "center", gap: "8px",
+        }}>
+          <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
             {images.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
-                aria-label={`Go to banner ${i + 1}`}
                 style={{
-                  width: i === current ? "28px" : "8px",
-                  height: "8px",
+                  width: i === current ? "26px" : "7px",
+                  height: "7px",
                   borderRadius: "4px",
-                  background:
-                    i === current
-                      ? "linear-gradient(90deg, #c9a84c, #e8c97a)"
-                      : "rgba(255,255,255,0.25)",
                   border: "none",
-                  cursor: "pointer",
                   padding: 0,
-                  transition: "all 0.4s cubic-bezier(0.4,0,0.2,1)",
+                  cursor: "pointer",
+                  transition: "all 0.4s ease",
+                  background: i === current
+                    ? "linear-gradient(90deg, #c9a84c, #e8c97a)"
+                    : "rgba(255,255,255,0.25)",
                 }}
               />
             ))}
           </div>
-
-       
+          <div style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "0.6rem",
+            letterSpacing: "0.3em",
+            color: "rgba(255,255,255,0.3)",
+            lineHeight: 1,
+          }}>
+            {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+          </div>
         </div>
       )}
 
       {/* Progress bar */}
       {total > 1 && (
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: "2px",
-            background: "rgba(255,255,255,0.06)",
-            zIndex: 20,
-          }}
-        >
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0,
+          height: "2px", background: "rgba(255,255,255,0.06)", zIndex: 20,
+        }}>
           <div
-            key={`${current}-progress`}
+            key={`${current}-p`}
             style={{
               height: "100%",
               background: "linear-gradient(90deg, #8b0000, #c9a84c)",
-              animation: `bvProgress ${interval}ms linear forwards`,
+              animation: `bvProg ${interval}ms linear forwards`,
             }}
           />
         </div>
       )}
 
       <style>{`
-        @keyframes bvProgress {
-          from { width: 0%; }
-          to   { width: 100%; }
-        }
+        @keyframes bvProg { from { width: 0% } to { width: 100% } }
       `}</style>
     </section>
   );
 };
+
+const arrowStyle = (side) => ({
+  position: "absolute",
+  top: "50%",
+  [side]: "14px",
+  transform: "translateY(-50%)",
+  zIndex: 30,
+  width: "40px",
+  height: "40px",
+  borderRadius: "50%",
+  background: "rgba(5,0,0,0.5)",
+  border: "1px solid rgba(201,168,76,0.3)",
+  color: "rgba(255,255,255,0.65)",
+  fontSize: "1rem",
+  cursor: "pointer",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  backdropFilter: "blur(8px)",
+  transition: "all 0.25s ease",
+  lineHeight: 1,
+});
 
 export default BannerImageSlider;

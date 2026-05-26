@@ -18,8 +18,8 @@ const BANNERS = [
 const HomeScreen = () => (
   <main>
     <Hero />
+     <BannerImageSlider images={BANNERS} interval={4000} height="400px" />
     <AboutSection />
-    <BannerImageSlider images={BANNERS} interval={4000} height="500px" />
     <BannerSlider />
     <ContestantsSection />
     <EpisodesSection />
