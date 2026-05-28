@@ -35,7 +35,7 @@ const ScoreBar = ({ val }) => (
                     background: val >= 85
                         ? "linear-gradient(90deg,#c9a84c,#e8c97a)"
                         : val >= 70
-                            ? "linear-gradient(90deg,#8b0000,#c0392b)"
+                            ? "linear-gradient(90deg,#cc0022,#c0392b)"
                             : "rgba(255,255,255,0.25)",
                 }}
             />
@@ -59,7 +59,7 @@ const ScoreboardSection = () => {
         <section
             id="scoreboard"
             className="min-h-screen py-28 px-4 relative overflow-hidden"
-            style={{ background: "linear-gradient(180deg, #050000 0%, #0d0507 100%)" }}
+            style={{ background: "linear-gradient(180deg, #050000 0%, #050000 100%)" }}
         >
             <div
                 className="absolute inset-0 pointer-events-none"

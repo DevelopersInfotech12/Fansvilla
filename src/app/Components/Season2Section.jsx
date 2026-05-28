@@ -9,7 +9,7 @@ const InputField = ({ label, type = "text", value, onChange, placeholder, requir
   <div className="flex flex-col gap-1.5">
     <label className="text-xs font-semibold tracking-[0.15em] uppercase"
       style={{ color: "rgba(201,168,76,0.8)" }}>
-      {label} {required && <span style={{ color: "#8b0000" }}>*</span>}
+      {label} {required && <span style={{ color: "#cc0022" }}>*</span>}
     </label>
     <input
       type={type} value={value} onChange={onChange}
@@ -135,7 +135,7 @@ const AuthModal = ({ onClose, onAuthSuccess }) => {
       style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(10px)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="relative w-full max-w-md rounded-3xl overflow-hidden"
-        style={{ background: "linear-gradient(180deg, #0d0507 0%, #080003 100%)", border: "1px solid rgba(201,168,76,0.25)", boxShadow: "0 40px 100px rgba(0,0,0,0.8)" }}>
+        style={{ background: "linear-gradient(180deg, #050000 0%, #080003 100%)", border: "1px solid rgba(201,168,76,0.25)", boxShadow: "0 40px 100px rgba(0,0,0,0.8)" }}>
 
         <div className="absolute top-0 left-0 right-0 h-px"
           style={{ background: "linear-gradient(90deg, transparent, #c9a84c, transparent)" }} />
@@ -266,7 +266,7 @@ const LeadModal = ({ onClose, user }) => {
       style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(10px)" }}
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="relative w-full max-w-md rounded-3xl overflow-hidden"
-        style={{ background: "linear-gradient(180deg, #0d0507 0%, #080003 100%)", border: "1px solid rgba(201,168,76,0.25)", boxShadow: "0 40px 100px rgba(0,0,0,0.8)" }}>
+        style={{ background: "linear-gradient(180deg, #050000 0%, #080003 100%)", border: "1px solid rgba(201,168,76,0.25)", boxShadow: "0 40px 100px rgba(0,0,0,0.8)" }}>
 
         <div className="absolute top-0 left-0 right-0 h-px"
           style={{ background: "linear-gradient(90deg, transparent, #c9a84c, transparent)" }} />

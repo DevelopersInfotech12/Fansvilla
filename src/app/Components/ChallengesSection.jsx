@@ -5,7 +5,7 @@ const ChallengesSection = () => (
   <section
     id="tasks"
     className="py-28 px-4 relative overflow-hidden"
-    style={{ background: "linear-gradient(180deg, #0d0507 0%, #0a0005 100%)" }}
+    style={{ background: "linear-gradient(180deg, #050000 0%, #0a0005 100%)" }}
   >
     {/* BG accent */}
     <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(139,0,0,0.1) 0%, transparent 70%)" }} />
@@ -18,7 +18,7 @@ const ChallengesSection = () => (
           <span className="text-xs font-semibold tracking-[0.28em] uppercase" style={{ color: "#c9a84c" }}>Season 1</span>
           <div className="h-px w-8" style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
         </div>
-        <h2 className="font-black leading-tight" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 4.5vw, 3.2rem)", color: "#ffffff" }}>
+        <h2 className="font-black leading-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "clamp(2rem, 4.5vw, 3.2rem)", color: "#ffffff" }}>
           Tasks &amp; <span className="shimmer-text italic">Challenges</span>
         </h2>
         <p className="mt-3 text-sm" style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>
@@ -52,7 +52,7 @@ const ChallengesSection = () => (
               style={{ background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent)" }} />
 
             {/* Task number */}
-            <div className="absolute top-4 right-5 text-xs font-black tracking-widest" style={{ color: "rgba(201,168,76,0.2)", fontFamily: "'Playfair Display', serif", fontSize: "2.5rem" }}>
+            <div className="absolute top-4 right-5 text-xs font-black tracking-widest" style={{ color: "rgba(201,168,76,0.2)", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "2.5rem" }}>
               {String(i + 1).padStart(2, "0")}
             </div>
 

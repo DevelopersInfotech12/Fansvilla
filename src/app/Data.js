@@ -9,60 +9,78 @@ export const NAV_LINKS = [
 ];
 
 export const HERO_TAGLINES = [
-  "8 Strangers. Aankhein Band. Ek Villa.",
-  "Aankhein Band. Dil Khula.",
-  "The Ultimate Test of Love.",
+  "8 strangers enter a luxury villa blindfolded.",
+  "No followers. No filters. Only attraction.",
+  "2.5 days of chaos, chemistry & elimination.",
 ];
 
 export const CONTESTANTS = [
   {
-    name: "Contestant 1",
-    oneliner: "Dil se connected, aankhon se nahi",
+    name: "Arjun R.",
+    archetype: "The Playboy",
+    archetypeColor: "#cc0022",
+    oneliner: "Charisma is a weapon. He knows how to use it.",
     gender: "male",
-    color: "from-rose-500 to-pink-700",
   },
   {
-    name: "Contestant 2",
-    oneliner: "Dil se connected, aankhon se nahi",
+    name: "Priya S.",
+    archetype: "The Manipulator",
+    archetypeColor: "#cc0022",
+    oneliner: "She never shows her cards. Until it's too late.",
     gender: "female",
-    color: "from-amber-500 to-orange-700",
   },
   {
-    name: "Contestant 3",
-    oneliner: "Dil se connected, aankhon se nahi",
+    name: "Nisha K.",
+    archetype: "The Silent Killer",
+    archetypeColor: "#cc0022",
+    oneliner: "Says the least. Feels the most. Wins the game.",
+    gender: "female",
+  },
+  {
+    name: "Rohan M.",
+    archetype: "The Green Flag",
+    archetypeColor: "#cc0022",
+    oneliner: "Too good to be true? Or exactly what he seems?",
     gender: "male",
-    color: "from-violet-500 to-purple-700",
   },
+  
   {
-    name: "Contestant 4",
-    oneliner: "Dil se connected, aankhon se nahi",
-    gender: "female",
-    color: "from-emerald-500 to-teal-700",
-  },
-  {
-    name: "Contestant 5",
-    oneliner: "Dil se connected, aankhon se nahi",
+    name: "Vikram D.",
+    archetype: "The Overthinker",
+    archetypeColor: "#ff6600",
+    oneliner: "Logic versus emotion. He's losing the battle.",
     gender: "male",
-    color: "from-cyan-500 to-blue-700",
   },
   {
-    name: "Contestant 6",
-    oneliner: "Dil se connected, aankhon se nahi",
+    name: "Meera T.",
+    archetype: "The Wildcard",
+    archetypeColor: "#ff6600",
+    oneliner: "No one predicted her. No one was ready.",
     gender: "female",
-    color: "from-yellow-500 to-amber-700",
   },
   {
-    name: "Contestant 7",
-    oneliner: "Dil se connected, aankhon se nahi",
+    name: "Kabir V.",
+    archetype: "The Protector",
+    archetypeColor: "#ff6600",
+    oneliner: "He came to connect. He stayed to defend.",
     gender: "male",
-    color: "from-red-500 to-rose-700",
   },
   {
-    name: "Contestant 8",
-    oneliner: "Dil se connected, aankhon se nahi",
+    name: "Aanya L.",
+    archetype: "The Heartbreaker",
+    archetypeColor: "#ff6600",
+    oneliner: "She didn't mean to. She never does.",
     gender: "female",
-    color: "from-fuchsia-500 to-pink-700",
   },
+];
+
+export const TENSION_UPDATES = [
+  "👁️ 1 contestant self-eliminated on Day 2",
+  "💔 2 secret connections formed behind closed doors",
+  "🔥 Trust was broken — and they all knew who did it",
+  "🤫 One rule changed everything on the final night",
+  "⚡ A blindfold task ended in chaos",
+  "💛 The vote was 4-4. A tiebreaker no one expected.",
 ];
 
 export const TASKS = [

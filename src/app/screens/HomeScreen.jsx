@@ -8,17 +8,18 @@ import SponsorsSection from "../Components/SponsorsSection";
 import Season2Section from "../Components/Season2Section";
 import BannerSlider from "../Components/BannerSlider";
 import BannerImageSlider from "../Components/BannerImageSlider";
+import TensionTicker from "../Components/TensionTicker";
 
 const BANNERS = [
   "/banner1.png",
   "/bannernew3.png",
-  // "/images/banner3.png",
 ];
 
 const HomeScreen = () => (
   <main>
     <Hero />
-     <BannerImageSlider images={BANNERS} interval={4000} height="400px" />
+    <TensionTicker />
+    <BannerImageSlider images={BANNERS} interval={4000} height="400px" />
     <AboutSection />
     <BannerSlider />
     <ContestantsSection />

@@ -11,7 +11,7 @@ const EpisodesSection = () => (
   <section
     id="episodes"
     className="py-28 px-4 relative overflow-hidden"
-    style={{ background: "linear-gradient(180deg, #0a0005 0%, #0d0507 100%)" }}
+    style={{ background: "linear-gradient(180deg, #0a0005 0%, #050000 100%)" }}
   >
     <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139,0,0,0.1) 0%, transparent 70%)" }} />
 
@@ -23,7 +23,7 @@ const EpisodesSection = () => (
           <span className="text-xs font-semibold tracking-[0.28em] uppercase" style={{ color: "#c9a84c" }}>Watch Now</span>
           <div className="h-px w-8" style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
         </div>
-        <h2 className="font-black leading-tight" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 4.5vw, 3.2rem)", color: "#ffffff" }}>
+        <h2 className="font-black leading-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "clamp(2rem, 4.5vw, 3.2rem)", color: "#ffffff" }}>
           The <span className="shimmer-text italic">Episodes</span>
         </h2>
         <p className="mt-3 text-sm" style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>

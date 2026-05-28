@@ -27,7 +27,7 @@ const LeaderboardSection = () => {
               <div className="h-px w-12" style={{ background: "linear-gradient(90deg, transparent, #c9a84c)" }} />
               <span className="text-xs font-semibold tracking-[0.3em] uppercase" style={{ color: "#c9a84c" }}>Power Rankings</span>
             </div>
-            <h2 className="font-black leading-tight text-white" style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.2rem, 5vw, 3.5rem)" }}>
+            <h2 className="font-black leading-tight text-white" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "clamp(2.2rem, 5vw, 3.5rem)" }}>
               Couple <span className="shimmer-text italic">Scoreboard</span>
             </h2>
             <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.6)", fontWeight: 300 }}>

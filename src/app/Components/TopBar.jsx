@@ -9,13 +9,13 @@ const TopBar = () => {
     <div
       className="fixed top-0 left-0 right-0 z-[60] overflow-hidden"
       style={{
-        background: "linear-gradient(90deg, #1a0a0a 0%, #8b0000 40%, #6b0000 60%, #1a0a0a 100%)",
+        background: "#0a0000",
         height: "36px",
         borderBottom: "1px solid rgba(201,168,76,0.3)",
       }}
     >
-      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: "linear-gradient(90deg, #1a0a0a, transparent)" }} />
-      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: "linear-gradient(270deg, #1a0a0a, transparent)" }} />
+      <div className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: "linear-gradient(90deg, #0a0000, transparent)" }} />
+      <div className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none" style={{ background: "linear-gradient(270deg, #0a0000, transparent)" }} />
 
       <div className="absolute left-4 top-0 bottom-0 z-20 flex items-center gap-2">
         <div className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full" style={{ background: "rgba(0,0,0,0.4)", border: "1px solid rgba(201,168,76,0.35)" }}>

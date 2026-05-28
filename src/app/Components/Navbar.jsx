@@ -36,12 +36,12 @@ const Navbar = () => {
           <div className="relative">
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center text-white font-black text-xs shadow-lg group-hover:scale-110 transition-transform duration-300"
-              style={{ background: "linear-gradient(135deg, #8b0000, #c9a84c)", border: "1px solid rgba(201,168,76,0.4)" }}
+              style={{ background: "linear-gradient(135deg, #cc0022, #990018)", border: "1px solid rgba(204,0,34,0.5)" }}
             >
               BV
             </div>
             <div className="absolute -inset-1 rounded-full opacity-0 group-hover:opacity-50 blur-md transition-opacity duration-300"
-              style={{ background: "linear-gradient(135deg, #8b0000, #c9a84c)" }} />
+              style={{ background: "linear-gradient(135deg, #cc0022, #990018)" }} />
           </div>
           <span style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.08em", fontSize: "1.35rem" }}>
             <span style={{ color: "#ffffff" }}>Blindfold</span>
