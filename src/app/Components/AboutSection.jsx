@@ -25,11 +25,11 @@ const AboutSection = () => (
       <div className="text-center mb-8">
         {/* Line 1: small */}
         <span
-          className="block uppercase text-white"
+          className="block uppercase text-white text-[40px] sm:text-[60px]"
           style={{
             fontFamily: "'Barlow Condensed', sans-serif",
             fontWeight: 900,
-            fontSize: "clamp(2rem, 7vw, 4.2rem)",
+            // fontSize: "clamp(2rem, 7vw, 4.2rem)",
             lineHeight: 0.92,
             letterSpacing: "-0.01em",
           }}
@@ -39,11 +39,11 @@ const AboutSection = () => (
 
         {/* Line 2: medium — red accent */}
         <span
-          className="block uppercase text-white"
+          className="block uppercase text-white text-[40px] sm:text-[60px] sm:w-[900px] mx-auto"
           style={{
             fontFamily: "'Barlow Condensed', sans-serif",
             fontWeight: 900,
-            fontSize: "clamp(3.2rem, 6vw, 6.8rem)",
+            // fontSize: "clamp(3.2rem, 6vw, 6.8rem)",
             lineHeight: 0.9,
             letterSpacing: "-0.01em",
           }}
@@ -53,11 +53,11 @@ const AboutSection = () => (
 
         {/* Line 3: MASSIVE gold shimmer */}
         <span
-          className="block uppercase shimmer-text"
+          className="block uppercase shimmer-text text-[40px] sm:text-[60px]"
           style={{
             fontFamily: "'Barlow Condensed', sans-serif",
             fontWeight: 900,
-            fontSize: "clamp(4rem, 5vw, 9.5rem)",
+            // fontSize: "clamp(4rem, 5vw, 9.5rem)",
             lineHeight: 0.88,
             letterSpacing: "-0.02em",
           }}

@@ -9,6 +9,7 @@ import Season2Section from "../Components/Season2Section";
 import BannerSlider from "../Components/BannerSlider";
 import BannerImageSlider from "../Components/BannerImageSlider";
 import TensionTicker from "../Components/TensionTicker";
+import Jalajcomp from "../Components/Jalajcomp";
 
 const BANNERS = [
   "/banner1.png",
@@ -22,10 +23,11 @@ const HomeScreen = () => (
     <BannerImageSlider images={BANNERS} interval={4000} height="400px" />
     <AboutSection />
     <BannerSlider />
-    <ContestantsSection />
+    <Jalajcomp/>
+    {/* <ContestantsSection /> */}
     <EpisodesSection />
     <ChallengesSection />
-    <ScoreboardSection />
+    {/* <ScoreboardSection /> */}
     <SponsorsSection />
     <Season2Section />
   </main>

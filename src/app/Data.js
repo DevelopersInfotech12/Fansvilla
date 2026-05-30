@@ -5,7 +5,7 @@ export const NAV_LINKS = [
   { label: "Contestants", href: "#contestants" },
   { label: "Episodes",    href: "#episodes" },
   { label: "Tasks",       href: "#tasks" },
-  { label: "Scoreboard",  href: "#scoreboard" },
+  // { label: "Scoreboard",  href: "#scoreboard" },
 ];
 
 export const HERO_TAGLINES = [
