@@ -39,7 +39,7 @@ const ContestantsSection = () => {
           <h2
             className="leading-none mb-3"
             style={{
-              fontFamily: "'Barlow Condensed', sans-serif",
+              fontFamily: "'Poppins', 'system-ui', sans-serif",
               fontWeight: 900,
               fontSize: "clamp(3rem, 4vw, 6rem)",
               textTransform: "uppercase",
@@ -93,7 +93,7 @@ const ContestantsSection = () => {
                 <div
                   className="absolute top-2 right-3 z-10 font-black leading-none select-none pointer-events-none"
                   style={{
-                    fontFamily: "'Barlow Condensed', sans-serif",
+                    fontFamily: "'Poppins', 'system-ui', sans-serif",
                     fontSize: "5rem",
                     color: "rgba(255,255,255,0.035)",
                     lineHeight: 1,
@@ -129,7 +129,6 @@ const ContestantsSection = () => {
                       className="px-2 py-0.5 text-white font-black uppercase"
                       style={{
                         background: archetypeColor,
-                        // fontFamily: "'Bebas Neue', sans-serif",
                         fontSize: "0.6rem",
                         letterSpacing: "0.12em",
                         boxShadow: `0 2px 12px ${archetypeColor}55`,
@@ -157,7 +156,7 @@ const ContestantsSection = () => {
                   <h3
                     className="font-black text-white leading-none mb-2"
                     style={{
-                      fontFamily: "'Barlow Condensed', sans-serif",
+                      fontFamily: "'Poppins', 'system-ui', sans-serif",
                       fontSize: "1.35rem",
                       textTransform: "uppercase",
                       letterSpacing: "0.04em",

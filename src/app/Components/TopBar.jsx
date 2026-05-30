@@ -9,7 +9,7 @@ const TopBar = () => {
     <div
       className="fixed top-0 left-0 right-0 z-[60] overflow-hidden"
       style={{
-        background: "#0a0000",
+        background: "linear-gradient(135deg, #cc0022, #990018)",
         height: "36px",
         borderBottom: "1px solid rgba(201,168,76,0.3)",
       }}

@@ -23,7 +23,16 @@ const EpisodesSection = () => (
           <span className="text-xs font-semibold tracking-[0.28em] uppercase" style={{ color: "#c9a84c" }}>Watch Now</span>
           <div className="h-px w-8" style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
         </div>
-        <h2 className="font-black leading-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "clamp(2rem, 4.5vw, 3.2rem)", color: "#ffffff" }}>
+        <h2
+          className="font-black leading-tight"
+          style={{
+            fontFamily: "'Poppins', 'system-ui', sans-serif",
+            fontWeight: 900,
+            textTransform: "uppercase",
+            fontSize: "clamp(2rem, 4.5vw, 3.2rem)",
+            color: "#ffffff",
+          }}
+        >
           The <span className="shimmer-text italic">Episodes</span>
         </h2>
         <p className="mt-3 text-sm" style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>
@@ -90,7 +99,7 @@ const EpisodesSection = () => (
 
             {/* Card body */}
             <div className="p-5">
-              <h3 className="font-bold text-lg mb-1 text-white">{ep.title}</h3>
+              <h3 className="font-bold text-lg mb-1 text-white" style={{ fontFamily: "'Poppins', 'system-ui', sans-serif"}}>{ep.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)", fontWeight: 300 }}>{ep.desc}</p>
               <div className="mt-4 flex items-center gap-1.5" style={{ color: "#c9a84c" }}>
                 <span className="text-xs font-bold">Watch on YouTube →</span>

@@ -23,7 +23,14 @@ const TensionTicker = () => {
           <span
             key={i}
             className="inline-flex items-center"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 700, fontSize: "1rem", letterSpacing: "0.05em", textTransform: "uppercase", color: "#ffffff" }}
+            style={{
+              fontFamily: "'Poppins', 'system-ui', sans-serif",
+              fontWeight: 700,
+              fontSize: "1rem",
+              letterSpacing: "0.05em",
+              textTransform: "uppercase",
+              color: "#ffffff",
+            }}
           >
             {item}
             <span className="mx-6 opacity-50" style={{ fontSize: "0.6rem" }}>◆</span>

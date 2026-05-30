@@ -18,7 +18,7 @@ const ChallengesSection = () => (
           <span className="text-xs font-semibold tracking-[0.28em] uppercase" style={{ color: "#c9a84c" }}>Season 1</span>
           <div className="h-px w-8" style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
         </div>
-        <h2 className="font-black leading-tight" style={{ fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "clamp(2rem, 4.5vw, 3.2rem)", color: "#ffffff" }}>
+        <h2 className="font-black leading-tight" style={{ fontFamily: "'Poppins', 'system-ui', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "clamp(2rem, 4.5vw, 3.2rem)", color: "#ffffff" }}>
           Tasks &amp; <span className="shimmer-text italic">Challenges</span>
         </h2>
         <p className="mt-3 text-sm" style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>
@@ -52,7 +52,7 @@ const ChallengesSection = () => (
               style={{ background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent)" }} />
 
             {/* Task number */}
-            <div className="absolute top-4 right-5 text-xs font-black tracking-widest" style={{ color: "rgba(201,168,76,0.2)", fontFamily: "'Barlow Condensed', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "2.5rem" }}>
+            <div className="absolute top-4 right-5 text-xs font-black tracking-widest" style={{ color: "rgba(201,168,76,0.2)", fontFamily: "'Poppins', 'system-ui', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "2.5rem" }}>
               {String(i + 1).padStart(2, "0")}
             </div>
 
@@ -66,7 +66,7 @@ const ChallengesSection = () => (
               </div>
 
               <div>
-                <h3 className="font-bold text-lg mb-2 text-white">{task.title}</h3>
+                <h3 className="font-bold text-lg mb-2 text-white" style={{ fontFamily: "'Poppins', 'system-ui', sans-serif", }}>{task.title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)", fontWeight: 300 }}>
                   {task.desc}
                 </p>

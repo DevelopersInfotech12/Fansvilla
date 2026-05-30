@@ -24,7 +24,7 @@ const HomeScreen = () => (
     <AboutSection />
     <BannerSlider />
     <Jalajcomp/>
-    {/* <ContestantsSection /> */}
+    <ContestantsSection />
     <EpisodesSection />
     <ChallengesSection />
     {/* <ScoreboardSection /> */}

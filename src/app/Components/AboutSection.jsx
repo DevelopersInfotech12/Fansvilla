@@ -27,7 +27,7 @@ const AboutSection = () => (
         <span
           className="block uppercase text-white text-[40px] sm:text-[60px]"
           style={{
-            fontFamily: "'Barlow Condensed', sans-serif",
+            fontFamily: "'Poppins', 'system-ui', sans-serif",
             fontWeight: 900,
             // fontSize: "clamp(2rem, 7vw, 4.2rem)",
             lineHeight: 0.92,
@@ -39,23 +39,23 @@ const AboutSection = () => (
 
         {/* Line 2: medium — red accent */}
         <span
-          className="block uppercase text-white text-[40px] sm:text-[60px] sm:w-[900px] mx-auto"
+          className="block uppercase text-white text-[40px] sm:text-[60px] sm:w-[500px] mx-auto"
           style={{
-            fontFamily: "'Barlow Condensed', sans-serif",
+            fontFamily: "'Poppins', 'system-ui', sans-serif",
             fontWeight: 900,
             // fontSize: "clamp(3.2rem, 6vw, 6.8rem)",
             lineHeight: 0.9,
             letterSpacing: "-0.01em",
           }}
         >
-          <span style={{ color: "#cc0022" }}>"WHEN 8 STRANGERS</span> ENTER A VILLA"
+          <span style={{ color: "#cc0022" }}>"WHEN 8 STRANGERS</span> <br/>ENTER A VILLA"
         </span>
 
         {/* Line 3: MASSIVE gold shimmer */}
         <span
           className="block uppercase shimmer-text text-[40px] sm:text-[60px]"
           style={{
-            fontFamily: "'Barlow Condensed', sans-serif",
+            fontFamily: "'Poppins', 'system-ui', sans-serif",
             fontWeight: 900,
             // fontSize: "clamp(4rem, 5vw, 9.5rem)",
             lineHeight: 0.88,
