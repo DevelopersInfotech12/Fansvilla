@@ -6,7 +6,7 @@ export default function Jalajcomp() {
       {/* Mobile */}
       <div className="md:hidden">
         <Image
-          src="/jalajbannermobile.png"
+          src="/jalumobile.png"
           alt="Mobile Banner"
           width={768}
           height={500}
@@ -17,7 +17,7 @@ export default function Jalajcomp() {
       {/* Desktop */}
       <div className="hidden md:block">
         <Image
-          src="/hostnew.png"
+          src="/jaludekstop.png"
           alt="Desktop Banner"
           width={1440}
           height={200}
