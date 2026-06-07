@@ -73,7 +73,7 @@ const Navbar = () => {
             href="https://youtube.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2.5 text-xs font-bold tracking-widest uppercase text-black rounded-full hover:scale-105 transition-all duration-300"
+            className="px-6 py-3 text-xs font-bold tracking-widest uppercase text-black rounded-full hover:scale-105 transition-all duration-300"
             style={{ background: "linear-gradient(135deg, #c9a84c, #e8c97a)", boxShadow: "0 4px 20px rgba(201,168,76,0.4)" }}
             onMouseEnter={e => e.currentTarget.style.boxShadow = "0 4px 30px rgba(201,168,76,0.65)"}
             onMouseLeave={e => e.currentTarget.style.boxShadow = "0 4px 20px rgba(201,168,76,0.4)"}

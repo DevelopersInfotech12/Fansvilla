@@ -35,7 +35,7 @@ const ApplyCTA = () => {
 
             <h2
               className="font-black text-white leading-tight mb-4"
-              style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 6vw, 4rem)" }}
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(3rem, 6vw, 4rem)" }}
             >
               You Could Be <br />
               <span className="shimmer-text italic">In The Villa</span>
@@ -52,7 +52,7 @@ const ApplyCTA = () => {
                 onMouseEnter={e => e.currentTarget.style.boxShadow = "0 12px 50px rgba(185,28,58,0.75)"}
                 onMouseLeave={e => e.currentTarget.style.boxShadow = "0 8px 40px rgba(185,28,58,0.55)"}
               >
-                Apply 
+                Apply
               </button>
               <button
                 className="text-sm font-medium transition-colors"

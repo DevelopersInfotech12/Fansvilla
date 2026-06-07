@@ -52,7 +52,7 @@ const ChallengesSection = () => (
               style={{ background: "linear-gradient(90deg, transparent, rgba(201,168,76,0.6), transparent)" }} />
 
             {/* Task number */}
-            <div className="absolute top-4 right-5 text-xs font-black tracking-widest" style={{ color: "rgba(201,168,76,0.2)", fontFamily: "'Poppins', 'system-ui', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "2.5rem" }}>
+            <div className="absolute top-4 right-5 text-xs font-black tracking-widest" style={{ color: "rgba(201,168,76,0.2)", fontFamily: "'Poppins', 'system-ui', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "3rem" }}>
               {String(i + 1).padStart(2, "0")}
             </div>
 

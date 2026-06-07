@@ -28,16 +28,16 @@ const GoogleIcon = () => (
     <path fill="#FFC107" d="M43.6 20H24v8h11.3C33.7 33.1 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.7 1.1 7.8 2.9l5.7-5.7C34.1 6.5 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20c11 0 20-8 20-20 0-1.3-.1-2.7-.4-4z" />
     <path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.1 18.9 12 24 12c3 0 5.7 1.1 7.8 2.9l5.7-5.7C34.1 6.5 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" />
     <path fill="#4CAF50" d="M24 44c5.2 0 9.9-1.9 13.5-5l-6.2-5.2C29.4 35.6 26.8 36 24 36c-5.2 0-9.7-2.9-11.9-7.1l-6.6 5.1C9.5 39.6 16.3 44 24 44z" />
-    <path fill="#1976D2" d="M43.6 20H24v8h11.3c-.9 2.4-2.5 4.5-4.5 5.9l6.2 5.2C40.8 35.8 44 30.3 44 24c0-1.3-.1-2.7-.4-4z" />
+    <path fill="#1976D2" d="M43.6 20H24v8h11.3c-.9 2.4-3 4.5-4.5 5.9l6.2 5.2C40.8 35.8 44 30.3 44 24c0-1.3-.1-2.7-.4-4z" />
   </svg>
 );
 
 // ─── Auth Modal ───────────────────────────────────────────────────────────────
 const AuthModal = ({ onClose, onAuthSuccess }) => {
-  const [tab, setTab]         = useState("login"); // "login" | "signup"
-  const [form, setForm]       = useState({ name: "", email: "", password: "" });
+  const [tab, setTab] = useState("login"); // "login" | "signup"
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
-  const [error, setError]     = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const handler = (e) => { if (e.key === "Escape") onClose(); };
@@ -61,7 +61,7 @@ const AuthModal = ({ onClose, onAuthSuccess }) => {
         ? { name: form.name, email: form.email, password: form.password }
         : { email: form.email, password: form.password };
 
-      const res  = await fetch(endpoint, {
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
@@ -101,17 +101,17 @@ const AuthModal = ({ onClose, onAuthSuccess }) => {
         if (url.includes("access_token")) {
           clearInterval(timer);
           popup.close();
-          const hash  = new URLSearchParams(url.split("#")[1]);
+          const hash = new URLSearchParams(url.split("#")[1]);
           const token = hash.get("access_token");
 
           // Get Google user info
-          const gRes  = await fetch("https://www.googleapis.com/oauth2/v2/userinfo", {
+          const gRes = await fetch("https://www.googleapis.com/oauth2/v2/userinfo", {
             headers: { Authorization: `Bearer ${token}` },
           });
           const gUser = await gRes.json();
 
           // Save to MongoDB
-          const res  = await fetch("/api/auth/google", {
+          const res = await fetch("/api/auth/google", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name: gUser.name, email: gUser.email }),
@@ -223,10 +223,10 @@ const AuthModal = ({ onClose, onAuthSuccess }) => {
 
 // ─── Lead Form Modal ──────────────────────────────────────────────────────────
 const LeadModal = ({ onClose, user }) => {
-  const [form, setForm]       = useState({ name: user?.name || "", phone: "", email: user?.email || "" });
+  const [form, setForm] = useState({ name: user?.name || "", phone: "", email: user?.email || "" });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError]     = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const handler = (e) => { if (e.key === "Escape") onClose(); };
@@ -324,7 +324,7 @@ const LeadModal = ({ onClose, user }) => {
               <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>
                 We'll notify you the moment Season 2 drops.
               </p>
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-6"
+              <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full mb-6"
                 style={{ background: "rgba(201,168,76,0.1)", border: "1px solid rgba(201,168,76,0.3)" }}>
                 <span style={{ color: "#c9a84c" }}>✓</span>
                 <span className="text-sm font-medium" style={{ color: "#e8c97a" }}>Registered successfully</span>
@@ -344,7 +344,7 @@ const LeadModal = ({ onClose, user }) => {
 // ─── Main Section ─────────────────────────────────────────────────────────────
 const Season2Section = () => {
   const [modal, setModal] = useState(null); // null | "auth" | "lead"
-  const [user, setUser]   = useState(null);
+  const [user, setUser] = useState(null);
 
   const handleAuthSuccess = (userData) => {
     setUser(userData);
@@ -379,7 +379,7 @@ const Season2Section = () => {
           </div>
 
           <h2 className="font-black leading-none mb-4"
-            style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2.5rem, 7vw, 5rem)", color: "#ffffff" }}>
+            style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(3rem, 7vw, 5rem)", color: "#ffffff" }}>
             Blindfold Villa<br />
             <span className="shimmer-text">Season 2</span>
           </h2>

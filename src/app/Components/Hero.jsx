@@ -42,7 +42,7 @@ const Hero = () => {
 
   const stats = [
     { num: "8", label: "Strangers" },
-    { num: "2.5", label: "Days" },
+    { num: "3", label: "Days" },
     { num: "4", label: "Tasks" },
     { num: "1", label: "Elimination" },
   ];
@@ -249,7 +249,7 @@ const Hero = () => {
         <div className="sm:mt-8 mt-6 flex flex-col sm:flex-row items-center justify-center" style={{ ...fadeIn(500), gap: "16px" }}>
           <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hv-watch-btn">
             <svg width="10" height="10" viewBox="0 0 14 14" fill="none" style={{ flexShrink: 0 }}>
-              <path d="M2 1.5L12 7L2 12.5V1.5Z" fill="white" />
+              <path d="M2 1.5L12 7L2 13V1.5Z" fill="white" />
             </svg>
             Watch Now
           </a>

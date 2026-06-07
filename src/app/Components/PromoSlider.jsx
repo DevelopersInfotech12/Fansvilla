@@ -121,24 +121,24 @@ const PromoSlider = () => {
         <div className="absolute inset-0 flex items-center z-10 px-5 md:px-16 lg:px-24">
           <div className="w-full sm:max-w-[58%] md:max-w-[52%]">
             {/* Top badge */}
-            <div className="inline-flex items-center gap-2 sm:px-2.5 px-2  py-1 ml-4 rounded-full mb-3"
+            <div className="inline-flex items-center gap-2 sm:px-3 px-2  py-1 ml-4 rounded-full mb-3"
               style={{ background: "rgba(0,0,0,0.35)", border: `1px solid ${s.accent}55`, backdropFilter: "blur(8px)" }}>
               {/* <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: s.accentLight }} /> */}
               <span className="sm:text-[10px] text-[7px]  md:text-xs font-semibold tracking-[0.15em] uppercase" style={{ color: s.accentLight }}>{s.tag}</span>
             </div>
 
             {/* Headline */}
-            <h2 style={{ fontFamily: "'Playfair Display', serif", lineHeight: 1.05,  }} className="sm:ml-1 ml-4">
+            <h2 style={{ fontFamily: "'Playfair Display', serif", lineHeight: 1.05, }} className="sm:ml-1 ml-4">
               <span className="block text-white font-black text-2xl sm:text-[100px]">
                 {s.headline}
               </span>
-              <span className="block font-black italic sm:text-[60px]" style={{  color: s.accentLight }}>
+              <span className="block font-black italic sm:text-[60px]" style={{ color: s.accentLight }}>
                 {s.headline2}
               </span>
             </h2>
 
             {/* Badge pill */}
-            <div className="inline-flex items-center gap-2 my-2 sm:px-2.5 ml-4 px-2 py-1 rounded-full"
+            <div className="inline-flex items-center gap-2 my-2 sm:px-3 ml-4 px-2 py-1 rounded-full"
               style={{ background: `${s.accent}22`, border: `1px solid ${s.accent}55` }}>
               <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: s.accentLight }}>{s.badge}</span>
             </div>

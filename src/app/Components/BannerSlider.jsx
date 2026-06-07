@@ -14,7 +14,7 @@ const SLIDES = [
   {
     tag: "Jim Corbett · Uttarakhand",
     headline: "Ek Villa,\n8 Anjaan Log",
-    sub: "Remote. Isolated. Blindfolded. 2.5 days that changed everything.",
+    sub: "Remote. Isolated. Blindfolded. 3 days that changed everything.",
     cta: { label: "Meet Contestants", href: "#contestants" },
     accent: "#e8c97a",
     bg: "radial-gradient(ellipse 80% 60% at 70% 50%, rgba(139,0,0,0.22) 0%, transparent 65%), radial-gradient(ellipse 50% 70% at 20% 80%, rgba(201,168,76,0.1) 0%, transparent 60%)",

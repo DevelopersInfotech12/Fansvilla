@@ -48,7 +48,7 @@ const AboutSection = () => (
             letterSpacing: "-0.01em",
           }}
         >
-          <span style={{ color: "#cc0022" }}>"WHEN 8 STRANGERS</span> <br/>ENTER A VILLA"
+          <span style={{ color: "#cc0022" }}>"WHEN 8 STRANGERS</span> <br />ENTER A VILLA"
         </span>
 
         {/* Line 3: MASSIVE gold shimmer */}
@@ -91,7 +91,7 @@ const AboutSection = () => (
           {
             icon: "👥",
             title: "Format",
-            detail: "4 Boys + 4 Girls\n2.5 Days · Season 1",
+            detail: "4 Boys + 4 Girls\n3 Days · Season 1",
           },
           {
             icon: "👁️",
@@ -156,16 +156,16 @@ const AboutSection = () => (
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 100% at 50% 50%, rgba(204,0,34,0.06) 0%, transparent 70%)" }} />
         <div className="relative z-10">
           <div className="text-5xl mb-5">  <img
-                src="/blindlogoedit.png"
-                alt="Blindfold Logo"
-                className="w-48 h-24 object-contain mx-auto"
-              /></div>
+            src="/blindlogoedit.png"
+            alt="Blindfold Logo"
+            className="w-48 h-24 object-contain mx-auto"
+          /></div>
           <h3
             className="shimmer-text leading-none mb-3"
             style={{
               fontFamily: "'Barlow Condensed', sans-serif",
               fontWeight: 900,
-              fontSize: "clamp(2.5rem, 7vw, 5rem)",
+              fontSize: "clamp(3rem, 7vw, 5rem)",
               textTransform: "uppercase",
             }}
           >

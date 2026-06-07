@@ -11,7 +11,7 @@ export const NAV_LINKS = [
 export const HERO_TAGLINES = [
   "8 strangers enter a luxury villa blindfolded.",
   "No followers. No filters. Only attraction.",
-  "2.5 days of chaos, chemistry & elimination.",
+  "3 days of chaos, chemistry & elimination.",
 ];
 
 export const CONTESTANTS = [

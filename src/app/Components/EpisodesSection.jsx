@@ -74,7 +74,7 @@ const EpisodesSection = () => (
 
               {/* Episode tag */}
               <div className="absolute top-3 left-3">
-                <span className="text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded"
+                <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded"
                   style={{ background: "rgba(0,0,0,0.7)", color: "rgba(255,255,255,0.75)", border: "1px solid rgba(201,168,76,0.2)", backdropFilter: "blur(6px)" }}>
                   {ep.tag}
                 </span>
@@ -82,7 +82,7 @@ const EpisodesSection = () => (
 
               {/* Views */}
               <div className="absolute top-3 right-3">
-                <span className="text-[10px] font-bold px-2.5 py-1 rounded"
+                <span className="text-[10px] font-bold px-3 py-1 rounded"
                   style={{ background: "rgba(0,0,0,0.7)", color: "#c9a84c", backdropFilter: "blur(6px)" }}>
                   👁 {ep.views} views
                 </span>
@@ -99,7 +99,7 @@ const EpisodesSection = () => (
 
             {/* Card body */}
             <div className="p-5">
-              <h3 className="font-bold text-lg mb-1 text-white" style={{ fontFamily: "'Poppins', 'system-ui', sans-serif"}}>{ep.title}</h3>
+              <h3 className="font-bold text-lg mb-1 text-white" style={{ fontFamily: "'Poppins', 'system-ui', sans-serif" }}>{ep.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)", fontWeight: 300 }}>{ep.desc}</p>
               <div className="mt-4 flex items-center gap-1.5" style={{ color: "#c9a84c" }}>
                 <span className="text-xs font-bold">Watch on YouTube →</span>

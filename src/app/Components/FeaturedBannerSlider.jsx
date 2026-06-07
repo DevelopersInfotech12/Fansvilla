@@ -81,7 +81,7 @@ const FeaturedBannerSlider = () => {
       </div>
 
       {/* Dots */}
-      <div className="flex items-center justify-center gap-2 py-2.5" style={{ background: "var(--bg-deep)" }}>
+      <div className="flex items-center justify-center gap-2 py-3" style={{ background: "var(--bg-deep)" }}>
         {BANNERS.map((_, i) => (
           <button
             key={i}
