@@ -1,23 +1,7 @@
 "use client";
 import { CONTESTANTS } from "../Data";
 
-const MALE_IMGS = [
-  "/contestant4.jpeg",
-  "/contestant6.jpeg",
-  "/contestant7.jpeg",
-];
-const FEMALE_IMGS = [
-  "/contestant1.jpeg",
-  "/contestant2.jpeg",
-  "/contestant3.jpeg",
-  "/contestant5.jpeg",
-  "/contestant8.jpeg",
-];
-
 const ContestantsSection = () => {
-  const maleCount = { used: 0 };
-  const femaleCount = { used: 0 };
-
   return (
     <section
       id="contestants"
@@ -57,10 +41,6 @@ const ContestantsSection = () => {
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {CONTESTANTS.map((c, i) => {
             const isMale = c.gender === "male";
-            const imgArr = isMale ? MALE_IMGS : FEMALE_IMGS;
-            const count = isMale ? maleCount : femaleCount;
-            const img = imgArr[count.used % imgArr.length];
-            count.used++;
             const archetypeColor = c.archetypeColor || "#cc0022";
 
             return (
@@ -84,38 +64,27 @@ const ContestantsSection = () => {
                 }}
               >
                 {/* Left accent strip */}
-                <div
-                  className="absolute left-0 top-0 bottom-0 w-[3px] z-20"
-                  style={{ background: archetypeColor }}
-                />
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] z-20" style={{ background: archetypeColor }} />
 
                 {/* Ghost index */}
                 <div
                   className="absolute top-2 right-3 z-10 font-black leading-none select-none pointer-events-none"
-                  style={{
-                    fontFamily: "'Poppins', 'system-ui', sans-serif",
-                    fontSize: "5rem",
-                    color: "rgba(255,255,255,0.035)",
-                    lineHeight: 1,
-                  }}
+                  style={{ fontFamily: "'Poppins', 'system-ui', sans-serif", fontSize: "5rem", color: "rgba(255,255,255,0.035)", lineHeight: 1 }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </div>
 
                 {/* Photo */}
-                <div className="relative overflow-hidden" style={{ height: "280px" }}>
+                <div className="relative overflow-hidden" style={{ height: "300px" }}>
                   <img
-                    src={img}
+                    src={c.img}
                     alt={c.name}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                    style={{ filter: "grayscale(50%) brightness(0.65) contrast(1.1)" }}
+                    style={{ filter: "grayscale(40%) brightness(0.75) contrast(1.1)" }}
                   />
 
                   {/* Bottom fade */}
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: "linear-gradient(to top, #0a0005 0%, rgba(10,0,5,0.45) 50%, transparent 100%)" }}
-                  />
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #0a0005 0%, rgba(10,0,5,0.45) 50%, transparent 100%)" }} />
 
                   {/* Accent color wash on hover */}
                   <div
@@ -127,12 +96,7 @@ const ContestantsSection = () => {
                   <div className="absolute bottom-3 left-5 z-10">
                     <span
                       className="px-2 py-0.5 text-white font-black uppercase"
-                      style={{
-                        background: archetypeColor,
-                        fontSize: "0.6rem",
-                        letterSpacing: "0.12em",
-                        boxShadow: `0 2px 12px ${archetypeColor}55`,
-                      }}
+                      style={{ background: archetypeColor, fontSize: "0.6rem", letterSpacing: "0.12em", boxShadow: `0 2px 12px ${archetypeColor}55` }}
                     >
                       {c.archetype}
                     </span>
@@ -141,11 +105,7 @@ const ContestantsSection = () => {
                   {/* Gender — top right */}
                   <div
                     className="absolute top-3 right-3 z-10 w-6 h-6 flex items-center justify-center text-xs font-bold"
-                    style={{
-                      background: "rgba(0,0,0,0.55)",
-                      border: "1px solid rgba(255,255,255,0.12)",
-                      color: "rgba(255,255,255,0.5)",
-                    }}
+                    style={{ background: "rgba(0,0,0,0.55)", border: "1px solid rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.5)" }}
                   >
                     {isMale ? "♂" : "♀"}
                   </div>
@@ -155,12 +115,7 @@ const ContestantsSection = () => {
                 <div className="px-5 pt-4 pb-5 pl-6">
                   <h3
                     className="font-black text-white leading-none mb-2"
-                    style={{
-                      fontFamily: "'Poppins', 'system-ui', sans-serif",
-                      fontSize: "1.35rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.04em",
-                    }}
+                    style={{ fontFamily: "'Poppins', 'system-ui', sans-serif", fontSize: "1.35rem", textTransform: "uppercase", letterSpacing: "0.04em" }}
                   >
                     {c.name}
                   </h3>
@@ -168,12 +123,7 @@ const ContestantsSection = () => {
                   {/* Animated separator */}
                   <div
                     className="mb-3 h-px transition-all duration-500 group-hover:opacity-80"
-                    style={{
-                      width: "2rem",
-                      background: archetypeColor,
-                      opacity: 0.4,
-                      transition: "width 0.4s ease, opacity 0.4s ease",
-                    }}
+                    style={{ width: "2rem", background: archetypeColor, opacity: 0.4, transition: "width 0.4s ease, opacity 0.4s ease" }}
                     ref={el => {
                       if (el) {
                         const card = el.closest(".group");
@@ -187,21 +137,13 @@ const ContestantsSection = () => {
                   <div className="relative overflow-hidden" style={{ minHeight: "40px" }}>
                     <p
                       className="absolute inset-0 text-xs italic transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-1"
-                      style={{
-                        color: "rgba(255,255,255,0.18)",
-                        fontFamily: "'DM Sans', sans-serif",
-                        fontWeight: 300,
-                      }}
+                      style={{ color: "rgba(255,255,255,0.18)", fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}
                     >
                       — classified —
                     </p>
                     <p
                       className="text-xs italic leading-relaxed opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400"
-                      style={{
-                        color: "rgba(255,255,255,0.75)",
-                        fontFamily: "'DM Sans', sans-serif",
-                        fontWeight: 300,
-                      }}
+                      style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}
                     >
                       "{c.oneliner}"
                     </p>

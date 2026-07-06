@@ -163,18 +163,26 @@ const Hero = () => {
         }
       `}</style>
 
-      {/* Background images */}
+      {/* Background video */}
       <div className="absolute inset-0 overflow-hidden">
-        <img
-          src="./blindheronew.png"
-          alt=""
-          className="hidden sm:block absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "50% 18%", filter: "brightness(0.45) saturate(1.15)", transform: `translate(${mousePos.x * 0.08}px, ${mousePos.y * 0.08}px) scale(1.1)`, transition: "transform 0.18s cubic-bezier(0.25,0.46,0.45,0.94)" }} />
-        <img
-          src="./newherolight.png"
-          alt=""
-          className="block sm:hidden absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "50% 20%", filter: "brightness(0.45) saturate(1.15)" }} />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            objectPosition: "50% 18%",
+            filter: "brightness(1.55) saturate(2.15)",
+            transform: !isMobile
+              ? `translate(${mousePos.x * 0.08}px, ${mousePos.y * 0.08}px) scale(1.1)`
+              : "scale(1.05)",
+            transition: "transform 0.18s cubic-bezier(0.25,0.46,0.45,0.94)",
+          }}
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          <img src="/blindheronew.png" alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        </video>
       </div>
 
       {/* Gradient overlays */}
@@ -201,17 +209,7 @@ const Hero = () => {
         style={{ maxWidth: "1100px", padding: "0 clamp(20px, 5vw, 60px)", paddingTop: "clamp(50px, 8vh, 130px)", paddingBottom: "clamp(20px, 4vh, 64px)" }}>
 
         {/* TOP */}
-        <div className="flex flex-col items-center" style={{ gap: "clamp(8px, 1.8vh, 20px)" }}>
-
-          {/* Badge */}
-          <div
-            className="inline-flex items-center border-l-2 "
-            style={{ ...fadeIn(0), marginTop: "clamp(80px, 4vh, 48px)", gap: "8px", borderColor: "#cc0022", background: "rgba(204,0,34,0.06)", padding: "4px 12px" }}>
-            <div className="hv-live-dot" />
-            <span style={{ fontSize: "10px", fontWeight: 500, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(255,255,255,0.65)", whiteSpace: "nowrap" }}>
-              India's First Blindfold Reality Show
-            </span>
-          </div>
+        <div className="flex flex-col items-center mt-24" style={{ gap: "clamp(8px, 1.8vh, 20px)" }}>
 
           {/* Title */}
           <div style={{ ...fadeIn(120), textAlign: "center" }}>

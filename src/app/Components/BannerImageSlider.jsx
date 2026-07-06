@@ -1,27 +1,22 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from "react";
 
-/**
- * BannerImageSlider
- *
- * Props:
- *   images: string[]   — array of image src URLs (required)
- *   interval?: number  — auto-advance ms (default 5000)
- *
- * Image height is fully automatic — driven by the image's natural
- * aspect ratio. Zero blank space top or bottom.
- *
- * Usage:
- *   const BANNERS = ["/banner1.jpg", "/banner2.jpg", "/banner3.jpg"];
- *   <BannerImageSlider images={BANNERS} />
- */
-
-const BannerImageSlider = ({ images = [], interval = 5000 }) => {
+const BannerImageSlider = ({ images = [], mobileImages = [], interval = 5000 }) => {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [fade, setFade] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const timerRef = useRef(null);
-  const total = images.length;
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const activeImages = isMobile && mobileImages.length > 0 ? mobileImages : images;
+  const total = activeImages.length;
 
   const goTo = useCallback(
     (idx) => {
@@ -55,10 +50,15 @@ const BannerImageSlider = ({ images = [], interval = 5000 }) => {
     return () => window.removeEventListener("keydown", onKey);
   }, [next, prev]);
 
+  // Reset current index when image set switches (mobile ↔ desktop)
+  useEffect(() => {
+    setCurrent(0);
+  }, [isMobile]);
+
   if (total === 0) return null;
 
   return (
-    <section style={{ position: "relative", background: "#050000", userSelect: "none", lineHeight: 0, marginTop: "50px"}}>
+    <section style={{ position: "relative", background: "#050000", userSelect: "none", lineHeight: 0, marginTop: "50px" }}>
 
       {/* Gold top edge */}
       <div style={{
@@ -66,17 +66,17 @@ const BannerImageSlider = ({ images = [], interval = 5000 }) => {
         background: "linear-gradient(90deg, transparent 0%, #c9a84c 40%, #8b0000 60%, transparent 100%)",
       }} />
 
-      {/* Image — width:100%, height:auto = natural size, zero gaps */}
+      {/* Image */}
       <img
         key={current}
-        src={images[current]}
+        src={activeImages[current]}
         alt={`Banner ${current + 1}`}
         draggable={false}
         style={{
           display: "block",
-          width: "90%",
-          height: "auto",
-          margin: "0 auto", // centers horizontally
+          width: "95%",
+          height: "50%",
+          margin: "0 auto",
           opacity: fade ? 1 : 0,
           transition: "opacity 0.5s ease",
         }}
@@ -106,7 +106,7 @@ const BannerImageSlider = ({ images = [], interval = 5000 }) => {
           display: "flex", flexDirection: "column", alignItems: "center", gap: "8px",
         }}>
           <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
-            {images.map((_, i) => (
+            {activeImages.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}

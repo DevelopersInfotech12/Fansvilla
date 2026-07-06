@@ -11,19 +11,28 @@ import BannerImageSlider from "../Components/BannerImageSlider";
 import TensionTicker from "../Components/TensionTicker";
 import Jalajcomp from "../Components/Jalajcomp";
 
-const BANNERS = [
-  "/banner1.png",
-  "/bannernew3.png",
+const DESKTOP_BANNERS = [
+  "/chatgtbanner1.png",
+  "/chatgtbanner2.png",
+];
+
+const MOBILE_BANNERS = [
+  "/chatgtbanner1-mobile.png",
+  "/chatgtbanner2-mobile.png",
 ];
 
 const HomeScreen = () => (
   <main>
     <Hero />
     <TensionTicker />
-    <BannerImageSlider images={BANNERS} interval={4000} height="400px" />
+    <BannerImageSlider
+      images={DESKTOP_BANNERS}
+      mobileImages={MOBILE_BANNERS}
+      interval={4000}
+    />
     <AboutSection />
     <BannerSlider />
-    <Jalajcomp/>
+    <Jalajcomp />
     <ContestantsSection />
     <EpisodesSection />
     <ChallengesSection />
