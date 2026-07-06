@@ -180,7 +180,10 @@ const Hero = () => {
             transition: "transform 0.18s cubic-bezier(0.25,0.46,0.45,0.94)",
           }}
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source
+            src={process.env.NEXT_PUBLIC_HERO_VIDEO_URL || "/hero-video.mp4"}
+            type="video/mp4"
+          />
           <img src="/blindheronew.png" alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </video>
       </div>
