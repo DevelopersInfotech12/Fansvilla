@@ -55,7 +55,7 @@ const Navbar = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="relative text-sm font-medium tracking-[0.2em] uppercase transition-colors duration-300 group"
+              className="relative text-sm font-bold tracking-[0.2em] uppercase transition-colors duration-300 group"
               style={{ color: "rgba(255,255,255,0.65)" }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#c9a84c")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}

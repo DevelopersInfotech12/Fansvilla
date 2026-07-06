@@ -17,7 +17,7 @@ const AboutSection = () => (
       {/* Eyebrow */}
       <div className="flex items-center gap-3 justify-center mb-6">
         <div className="h-px flex-1 max-w-[60px]" style={{ background: "linear-gradient(90deg, transparent, #cc0022)" }} />
-        <span className="text-xs font-bold tracking-[0.32em] uppercase" style={{ color: "#cc0022", fontFamily: "'DM Sans', sans-serif" }}>About The Show</span>
+        <span className="text-sm font-bold tracking-[0.32em] uppercase" style={{ color: "#cc0022", fontFamily: "'DM Sans', sans-serif" }}>About The Show</span>
         <div className="h-px flex-1 max-w-[60px]" style={{ background: "linear-gradient(90deg, #cc0022, transparent)" }} />
       </div>
 
@@ -68,8 +68,8 @@ const AboutSection = () => (
 
       {/* Description */}
       <p
-        className="text-center sm:text-lg text-base leading-relaxed max-w-2xl mx-auto mb-16"
-        style={{ color: "rgba(255,255,255,0.62)", fontWeight: 300, fontFamily: "'DM Sans', sans-serif", lineHeight: 1.85 }}
+        className="text-center sm:text-[17px] text-base leading-relaxed max-w-2xl mx-auto mb-16"
+        style={{ color: "rgba(255,255,255,0.62)", fontWeight: 700, fontFamily: "'DM Sans', sans-serif", lineHeight: 1.85 }}
       >
         Blindfold Villa — India's first Blindfold Reality Show. 4 boys and 4 girls, one remote villa, eyes closed, and one question —{" "}
         <span style={{ color: "#c9a84c", fontWeight: 500 }}>can you fall in love without seeing?</span>

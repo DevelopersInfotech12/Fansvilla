@@ -233,16 +233,16 @@ const Hero = () => {
 
           {/* Tagline */}
           <div style={{ ...fadeIn(300), minHeight: "30px", textAlign: "center" }}>
-            <p style={{ margin: 0, fontWeight: 300, color: "rgba(255,255,255,0.85)", lineHeight: 1.5, fontSize: "clamp(0.8rem, 1.6vw, 1rem)", letterSpacing: "0.04em", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(-6px)", transition: "opacity 350ms ease-in-out, transform 350ms ease-in-out" }}>
+            <p style={{ margin: 0, fontWeight: 700, color: "rgba(255,255,255,0.85)", lineHeight: 1.5, fontSize: "clamp(0.8rem, 1.6vw, 1rem)", letterSpacing: "0.04em", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(-6px)", transition: "opacity 350ms ease-in-out, transform 350ms ease-in-out" }}>
               {HERO_TAGLINES[idx]}
             </p>
           </div>
 
           {/* Season badge */}
           <div style={{ ...fadeIn(380), display: "inline-flex", alignItems: "center", gap: "6px", padding: "5px 14px", border: "1px solid rgba(201,168,76,0.25)", background: "rgba(201,168,76,0.06)" }}>
-            <span style={{ fontSize: "0.65rem", fontWeight: 500, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(201,168,76,0.75)" }}>Season 1</span>
+            <span style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(201,168,76,0.75)" }}>Season 1</span>
             <span style={{ display: "inline-block", width: "1px", height: "10px", background: "rgba(201,168,76,0.25)" }} />
-            <span style={{ fontSize: "0.65rem", fontWeight: 400, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)" }}>Jim Corbett, Uttarakhand</span>
+            <span style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)" }}>Jim Corbett, Uttarakhand</span>
           </div>
         </div>
 
@@ -269,7 +269,7 @@ const Hero = () => {
                   {s.num}
                 </div>
                 <div style={{ width: "20px", height: "1px", background: "rgba(255,255,255,0.2)", margin: "4px auto" }} />
-                <div style={{ color: "rgba(255,255,255,0.35)", letterSpacing: "0.18em", textTransform: "uppercase", fontSize: "clamp(0.52rem, 1vw, 0.62rem)" }}>
+                <div style={{ color: "rgba(255, 255, 255, 0.67)", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", fontSize: "clamp(0.52rem, 1vw, 0.62rem)" }}>
                   {s.label}
                 </div>
               </div>

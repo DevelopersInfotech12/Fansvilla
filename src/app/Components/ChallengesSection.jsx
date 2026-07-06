@@ -67,7 +67,7 @@ const ChallengesSection = () => (
 
               <div>
                 <h3 className="font-bold text-lg mb-2 text-white" style={{ fontFamily: "'Poppins', 'system-ui', sans-serif", }}>{task.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)", fontWeight: 300 }}>
+                <p className="text-sm leading-relaxed font-bold" style={{ color: "rgba(255,255,255,0.55)", fontWeight: 700 }}>
                   {task.desc}
                 </p>
               </div>

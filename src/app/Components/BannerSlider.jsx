@@ -101,7 +101,7 @@ const BannerSlider = () => {
           className="flex items-center gap-3 mb-6 banner-fadein"
         >
           <div className="h-px w-12" style={{ background: `linear-gradient(90deg, transparent, ${slide.accent})` }} />
-          <span className="text-xs font-semibold tracking-[0.3em] uppercase" style={{ color: slide.accent }}>
+          <span className="text-sm font-bold tracking-[0.3em] uppercase" style={{ color: slide.accent }}>
             {slide.eyeIcon} {slide.tag}
           </span>
           <div className="h-px w-12" style={{ background: `linear-gradient(90deg, ${slide.accent}, transparent)` }} />
@@ -129,7 +129,7 @@ const BannerSlider = () => {
           style={{
             color: "rgba(255,255,255,0.62)",
             fontFamily: "'DM Sans', sans-serif",
-            fontWeight: 300,
+            fontWeight: 700,
             animationDelay: "0.2s",
           }}
         >
@@ -142,7 +142,7 @@ const BannerSlider = () => {
           href={slide.cta.href}
           target={slide.cta.href.startsWith("http") ? "_blank" : undefined}
           rel="noopener noreferrer"
-          className="px-8 py-3 text-xs font-bold tracking-widest uppercase text-black rounded-full banner-fadein-delay inline-block hover:scale-105 transition-transform duration-300"
+          className="px-8 py-3 text-sm font-bold tracking-widest uppercase text-black rounded-full banner-fadein-delay inline-block hover:scale-105 transition-transform duration-300"
           style={{
             background: `linear-gradient(135deg, #c9a84c, #e8c97a)`,
             boxShadow: "0 4px 28px rgba(201,168,76,0.45)",
