@@ -15,13 +15,13 @@ const ChallengesSection = () => (
       <div className="text-center mb-14">
         <div className="inline-flex items-center gap-3 mb-4">
           <div className="h-px w-8" style={{ background: "linear-gradient(90deg, transparent, #c9a84c)" }} />
-          <span className="text-xs font-semibold tracking-[0.28em] uppercase" style={{ color: "#c9a84c" }}>Season 1</span>
+          <span className="text-sm font-semibold tracking-[0.28em] uppercase" style={{ color: "#c9a84c" }}>Season 1</span>
           <div className="h-px w-8" style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
         </div>
         <h2 className="font-black leading-tight" style={{ fontFamily: "'Poppins', 'system-ui', sans-serif", fontWeight: 900, textTransform: 'uppercase', fontSize: "clamp(2rem, 4.5vw, 3.2rem)", color: "#ffffff" }}>
           Tasks &amp; <span className="shimmer-text italic">Challenges</span>
         </h2>
-        <p className="mt-3 text-sm" style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>
+        <p className="mt-3 text-sm" style={{ color: "rgba(255, 255, 255, 0.86)", fontWeight: 700 }}>
           4 blindfolded tasks that tested love, trust, and courage
         </p>
       </div>
@@ -81,7 +81,7 @@ const ChallengesSection = () => (
         className="mt-10 rounded-2xl p-6 text-center"
         style={{ background: "linear-gradient(135deg, rgba(139,0,0,0.12) 0%, rgba(201,168,76,0.05) 100%)", border: "1px solid rgba(201,168,76,0.15)" }}
       >
-        <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)", fontWeight: 300 }}>
+        <p className="text-md" style={{ color: "rgba(255,255,255,0.6)", fontWeight: 700 }}>
           <span style={{ color: "#c9a84c", fontWeight: 600 }}>Jim Corbett, Hriday Bhoomi Resort</span> · All tasks performed blindfolded · Season 1 Completed
         </p>
       </div>

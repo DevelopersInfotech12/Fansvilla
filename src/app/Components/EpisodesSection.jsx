@@ -20,7 +20,7 @@ const EpisodesSection = () => (
       <div className="text-center mb-14">
         <div className="inline-flex items-center gap-3 mb-4">
           <div className="h-px w-8" style={{ background: "linear-gradient(90deg, transparent, #c9a84c)" }} />
-          <span className="text-xs font-semibold tracking-[0.28em] uppercase" style={{ color: "#c9a84c" }}>Watch Now</span>
+          <span className="text-sm font-semibold tracking-[0.28em] uppercase" style={{ color: "#c9a84c" }}>Watch Now</span>
           <div className="h-px w-8" style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
         </div>
         <h2
@@ -35,7 +35,7 @@ const EpisodesSection = () => (
         >
           The <span className="shimmer-text italic">Episodes</span>
         </h2>
-        <p className="mt-3 text-sm" style={{ color: "rgba(255,255,255,0.45)", fontWeight: 300 }}>
+        <p className="mt-3 text-sm" style={{ color: "rgba(255, 255, 255, 0.88)", fontWeight: 700 }}>
           All 3 episodes streaming on YouTube
         </p>
       </div>
@@ -100,7 +100,7 @@ const EpisodesSection = () => (
             {/* Card body */}
             <div className="p-5">
               <h3 className="font-bold text-lg mb-1 text-white" style={{ fontFamily: "'Poppins', 'system-ui', sans-serif" }}>{ep.title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)", fontWeight: 300 }}>{ep.desc}</p>
+              <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255, 255, 255, 0.84)", fontWeight: 700 }}>{ep.desc}</p>
               <div className="mt-4 flex items-center gap-1.5" style={{ color: "#c9a84c" }}>
                 <span className="text-xs font-bold">Watch on YouTube →</span>
               </div>

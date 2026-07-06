@@ -17,7 +17,7 @@ const ContestantsSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-5">
             <div className="h-px w-8" style={{ background: "linear-gradient(90deg, transparent, #cc0022)" }} />
-            <span className="text-xs font-bold tracking-[0.35em] uppercase" style={{ color: "#cc0022", fontFamily: "'DM Sans', sans-serif" }}>Season 1 Cast</span>
+            <span className="text-sm font-bold tracking-[0.35em] uppercase" style={{ color: "#cc0022", fontFamily: "'DM Sans', sans-serif" }}>Season 1 Cast</span>
             <div className="h-px w-8" style={{ background: "linear-gradient(90deg, #cc0022, transparent)" }} />
           </div>
           <h2
@@ -32,7 +32,7 @@ const ContestantsSection = () => {
           >
             Meet The <span className="shimmer-text">8 Strangers</span>
           </h2>
-          <p className="text-sm tracking-[0.2em] uppercase" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-md font-bold tracking-[0.2em] uppercase" style={{ color: "rgba(255, 255, 255, 0.9)", fontFamily: "'DM Sans', sans-serif" }}>
             4 Boys · 4 Girls · Aankhein Band
           </p>
         </div>

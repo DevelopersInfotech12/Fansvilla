@@ -133,9 +133,9 @@ const AboutSection = () => (
             </div>
 
             <div
-              className="text-sm leading-relaxed whitespace-pre-line"
+              className="text-[15px] font-bold leading-relaxed whitespace-pre-line"
               style={{
-                color: "rgba(255,255,255,0.6)",
+                color: "rgba(255, 255, 255, 0.91)",
                 fontFamily: "'DM Sans', sans-serif",
               }}
             >
@@ -171,7 +171,7 @@ const AboutSection = () => (
           >
             BLINDFOLD VILLA
           </h3>
-          <p className="text-sm tracking-[0.3em] uppercase" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "'DM Sans', sans-serif" }}>Season 1 — Completed</p>
+          <p className="text-md font-bold tracking-[0.3em] uppercase" style={{ color: "rgba(255, 255, 255, 0.89)", fontFamily: "'DM Sans', sans-serif" }}>Season 1 — Completed</p>
         </div>
       </div>
     </div>
