@@ -48,18 +48,10 @@ const EpisodesSection = () => (
             href={ep.youtubeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative rounded-2xl overflow-hidden cursor-pointer block transition-all duration-300 hover:-translate-y-2"
+            className="group relative rounded-2xl overflow-hidden cursor-pointer block"
             style={{
               border: "1px solid rgba(201,168,76,0.12)",
-              background: "#0a0005",
-            }}
-            onMouseEnter={e => {
-              e.currentTarget.style.border = "1px solid rgba(201,168,76,0.45)";
-              e.currentTarget.style.boxShadow = "0 20px 52px rgba(0,0,0,0.6), 0 0 30px rgba(201,168,76,0.08)";
-            }}
-            onMouseLeave={e => {
-              e.currentTarget.style.border = "1px solid rgba(201,168,76,0.12)";
-              e.currentTarget.style.boxShadow = "none";
+              background: "#2a2a2a",
             }}
           >
             {/* Thumbnail */}
@@ -67,10 +59,8 @@ const EpisodesSection = () => (
               <img
                 src={THUMB_IMGS[i]}
                 alt={ep.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                style={{ filter: "brightness(0.55) saturate(1.2)" }}
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(5,0,0,1) 0%, rgba(0,0,0,0.1) 55%, transparent 100%)" }} />
 
               {/* Episode tag */}
               <div className="absolute top-3 left-3">
@@ -89,9 +79,9 @@ const EpisodesSection = () => (
               </div>
 
               {/* Play button */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-14 h-14 rounded-full flex items-center justify-center"
-                  style={{ background: "rgba(201,168,76,0.9)", boxShadow: "0 0 30px rgba(201,168,76,0.6)" }}>
+                  style={{ background: "rgba(201,168,76,0.9)" }}>
                   <span className="text-black text-xl ml-1">▶</span>
                 </div>
               </div>

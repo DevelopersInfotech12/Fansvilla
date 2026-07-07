@@ -46,21 +46,10 @@ const ContestantsSection = () => {
             return (
               <div
                 key={i}
-                className="group relative overflow-hidden cursor-pointer"
+                className="relative overflow-hidden"
                 style={{
-                  background: "#0a0005",
-                  border: "1px solid rgba(255,255,255,0.06)",
-                  transition: "transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease",
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = `${archetypeColor}55`;
-                  e.currentTarget.style.boxShadow = `0 24px 60px rgba(0,0,0,0.8), 0 0 0 1px ${archetypeColor}33`;
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-                  e.currentTarget.style.boxShadow = "none";
-                  e.currentTarget.style.transform = "translateY(0)";
+                  background: "#2a2a2a",
+                  border: "1px solid rgba(255,255,255,0.1)",
                 }}
               >
                 {/* Left accent strip */}
@@ -79,24 +68,14 @@ const ContestantsSection = () => {
                   <img
                     src={c.img}
                     alt={c.name}
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                    style={{ filter: "grayscale(40%) brightness(0.75) contrast(1.1)" }}
-                  />
-
-                  {/* Bottom fade */}
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #0a0005 0%, rgba(10,0,5,0.45) 50%, transparent 100%)" }} />
-
-                  {/* Accent color wash on hover */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    style={{ background: `linear-gradient(to top, ${archetypeColor}44 0%, transparent 55%)` }}
+                    className="w-full h-full object-cover"
                   />
 
                   {/* Archetype badge */}
                   <div className="absolute bottom-3 left-5 z-10">
                     <span
                       className="px-2 py-0.5 text-white font-black uppercase"
-                      style={{ background: archetypeColor, fontSize: "0.6rem", letterSpacing: "0.12em", boxShadow: `0 2px 12px ${archetypeColor}55` }}
+                      style={{ background: archetypeColor, fontSize: "0.6rem", letterSpacing: "0.12em" }}
                     >
                       {c.archetype}
                     </span>
@@ -120,41 +99,20 @@ const ContestantsSection = () => {
                     {c.name}
                   </h3>
 
-                  {/* Animated separator */}
+                  {/* Separator */}
                   <div
-                    className="mb-3 h-px transition-all duration-500 group-hover:opacity-80"
-                    style={{ width: "2rem", background: archetypeColor, opacity: 0.4, transition: "width 0.4s ease, opacity 0.4s ease" }}
-                    ref={el => {
-                      if (el) {
-                        const card = el.closest(".group");
-                        card?.addEventListener("mouseenter", () => { el.style.width = "100%"; });
-                        card?.addEventListener("mouseleave", () => { el.style.width = "2rem"; });
-                      }
-                    }}
+                    className="mb-3 h-px"
+                    style={{ width: "2rem", background: archetypeColor, opacity: 0.4 }}
                   />
 
-                  {/* One-liner reveal */}
-                  <div className="relative overflow-hidden" style={{ minHeight: "40px" }}>
-                    <p
-                      className="absolute inset-0 text-xs italic transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-1"
-                      style={{ color: "rgba(255,255,255,0.18)", fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}
-                    >
-                      — classified —
-                    </p>
-                    <p
-                      className="text-xs italic leading-relaxed opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-400"
-                      style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}
-                    >
-                      "{c.oneliner}"
-                    </p>
-                  </div>
+                  {/* One-liner, always visible */}
+                  <p
+                    className="text-xs italic leading-relaxed"
+                    style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'DM Sans', sans-serif", fontWeight: 300 }}
+                  >
+                    "{c.oneliner}"
+                  </p>
                 </div>
-
-                {/* Bottom accent line */}
-                <div
-                  className="h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: `linear-gradient(90deg, ${archetypeColor}, transparent)` }}
-                />
               </div>
             );
           })}

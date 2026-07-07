@@ -7,32 +7,24 @@ import ScoreboardSection from "../Components/ScoreboardSection";
 import SponsorsSection from "../Components/SponsorsSection";
 import Season2Section from "../Components/Season2Section";
 import BannerSlider from "../Components/BannerSlider";
-import BannerImageSlider from "../Components/BannerImageSlider";
+import BannerImage from "../Components/BannerImage";
 import TensionTicker from "../Components/TensionTicker";
 import Jalajcomp from "../Components/Jalajcomp";
 
-const DESKTOP_BANNERS = [
-  "/chatgtbanner1.png",
-  "/chatgtbanner2.png",
-];
-
-const MOBILE_BANNERS = [
-  "/chatgtbanner1-mobile.png",
-  "/chatgtbanner2-mobile.png",
-];
+const DESKTOP_BANNER = "/chatgtbanner1.png";
+const MOBILE_BANNER = "/chatgtbanner1-mobile.png";
 
 const HomeScreen = () => (
   <main>
     <Hero />
     <TensionTicker />
-    <BannerImageSlider
-      images={DESKTOP_BANNERS}
-      mobileImages={MOBILE_BANNERS}
-      interval={4000}
+    <BannerImage
+      image={DESKTOP_BANNER}
+      mobileImage={MOBILE_BANNER}
     />
     <AboutSection />
     <BannerSlider />
-    <Jalajcomp />
+    {/* <Jalajcomp /> */}
     <ContestantsSection />
     <EpisodesSection />
     <ChallengesSection />
