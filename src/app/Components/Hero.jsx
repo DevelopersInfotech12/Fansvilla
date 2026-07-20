@@ -240,9 +240,9 @@ const Hero = () => {
 
           {/* Season badge */}
           <div style={{ ...fadeIn(380), display: "inline-flex", alignItems: "center", gap: "6px", padding: "5px 14px", border: "1px solid rgba(201,168,76,0.25)", background: "rgba(201,168,76,0.06)" }}>
-            <span style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(201,168,76,0.75)" }}>Season 1</span>
+            <span style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(241, 182, 19, 0.75)" }}>Season 1</span>
             <span style={{ display: "inline-block", width: "1px", height: "10px", background: "rgba(201,168,76,0.25)" }} />
-            <span style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)" }}>Jim Corbett, Uttarakhand</span>
+            <span style={{ fontSize: "0.65rem", fontWeight: 800, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255, 255, 255, 0.8)" }}>Jim Corbett, Uttarakhand</span>
           </div>
         </div>
 
