@@ -8,7 +8,9 @@ const Hero = () => {
   const [visible, setVisible] = useState(true);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
+  const [muted, setMuted] = useState(true);
   const heroRef = useRef(null);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     setLoaded(true);
@@ -39,6 +41,14 @@ const Hero = () => {
     }, 3400);
     return () => clearInterval(timer);
   }, []);
+
+  const toggleSound = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+    if (!v.muted) v.play().catch((e) => console.error("play blocked:", e));
+  };
 
   const stats = [
     { num: "8", label: "Strangers" },
@@ -156,6 +166,12 @@ const Hero = () => {
           height: 40px;
           background: rgba(255,255,255,0.12);
         }
+        .hv-sound-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+        }
         @media (max-width: 639px) {
           .hv-title { font-size: clamp(3.6rem, 20vw, 5rem) !important; }
           .hv-stats-row { flex-wrap: wrap; gap: 20px !important; justify-content: center; }
@@ -166,8 +182,10 @@ const Hero = () => {
       {/* Background video */}
       <div className="absolute inset-0 overflow-hidden">
         <video
+          ref={videoRef}
           autoPlay
-          muted
+          // muted
+          defaultMuted
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
@@ -187,6 +205,18 @@ const Hero = () => {
           <img src="/blindheronew.png" alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
         </video>
       </div>
+
+      {/* Sound toggle */}
+      <button
+        onClick={toggleSound}
+        aria-label={muted ? "Unmute video" : "Mute video"}
+        className="hv-sound-btn absolute z-20"
+        style={{ top: "20px", right: "20px" }}
+      >
+        <div className="hv-explore-icon" style={{ color: "#fff" }}>
+          {muted ? "🔇" : "🔊"}
+        </div>
+      </button>
 
       {/* Gradient overlays */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0.1) 30%, rgba(5,5,5,0.55) 60%, rgba(5,5,5,0.98) 100%)" }} />
