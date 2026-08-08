@@ -242,7 +242,7 @@ const Hero = () => {
         onClick={toggleSound}
         aria-label={muted ? "Unmute video" : "Mute video"}
         className="hv-sound-btn absolute z-20"
-        style={{ top: "90px", right: "20px" }}
+        style={{ bottom: "10px", right: "20px" }}
       >
         <div className="hv-explore-icon" style={{ color: "#fff" }}>
           {muted ? "🔇" : "🔊"}

@@ -31,7 +31,7 @@ const TopBar = () => {
           style={{ animation: "ticker 55s linear infinite" }}
         >
           {[...NOTIFICATIONS, ...NOTIFICATIONS].map((n, i) => (
-            <span key={i} className="inline-flex items-center gap-2 text-[13px] font-semibold pr-16" style={{ color: "rgba(255,255,255,0.85)", fontFamily: "'DM Sans', sans-serif" }}>
+            <span key={i} className="inline-flex items-center gap-2 text-[13px] font-semibold pr-16" style={{ color: "rgba(255, 255, 255, 0.96)", fontFamily: "'DM Sans', sans-serif" }}>
               {n}
               <span style={{ color: "rgba(201,168,76,0.4)" }}>◆</span>
             </span>

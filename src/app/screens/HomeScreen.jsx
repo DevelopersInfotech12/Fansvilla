@@ -8,7 +8,7 @@ import SponsorsSection from "../Components/SponsorsSection";
 import Season2Section from "../Components/Season2Section";
 import BannerSlider from "../Components/BannerSlider";
 import BannerImage from "../Components/BannerImage";
-import TensionTicker from "../Components/TensionTicker";
+// import TensionTicker from "../Components/TensionTicker";
 import Jalajcomp from "../Components/Jalajcomp";
 
 const DESKTOP_BANNER = "/chatgtbanner1.png";
@@ -17,7 +17,7 @@ const MOBILE_BANNER = "/chatgtbanner1-mobile.png";
 const HomeScreen = () => (
   <main>
     <Hero />
-    <TensionTicker />
+    {/* <TensionTicker /> */}
     <BannerImage
       image={DESKTOP_BANNER}
       mobileImage={MOBILE_BANNER}

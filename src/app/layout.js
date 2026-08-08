@@ -1,5 +1,5 @@
 import "./globals.css";
-// import TopBar from "./Components/TopBar";
+import TopBar from "./Components/TopBar";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="antialiased">
-        {/* <TopBar /> */}
+        <TopBar />
         <Navbar />
         {children}
         <Footer />

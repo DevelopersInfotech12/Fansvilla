@@ -23,7 +23,7 @@ const Navbar = () => {
     <nav
       className="fixed left-0 right-0 z-50 transition-all duration-500"
       style={{
-        // top: "36px",
+        top: "36px",
         background: scrolled ? "rgba(10,5,5,0.97)" : "rgba(10,5,5,0.6)",
         backdropFilter: "blur(20px)",
         borderBottom: scrolled ? "1px solid rgba(201,168,76,0.25)" : "1px solid rgba(201,168,76,0.08)",
