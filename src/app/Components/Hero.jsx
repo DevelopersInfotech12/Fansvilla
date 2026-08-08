@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { HERO_TAGLINES } from "../Data";
 
 const Hero = () => {
@@ -11,6 +11,32 @@ const Hero = () => {
   const [muted, setMuted] = useState(true);
   const heroRef = useRef(null);
   const videoRef = useRef(null);
+
+  // one shared unmute attempt, safe to call from anywhere, no-ops once already unmuted
+  const attemptUnmute = useCallback(() => {
+    const v = videoRef.current;
+    if (!v || !v.muted) return;
+    v.muted = false;
+    const p = v.play();
+    if (p && typeof p.then === "function") {
+      p.then(() => setMuted(false)).catch(() => {
+        v.muted = true; // browser didn't count this event as a real gesture, revert, next event retries
+      });
+    } else {
+      setMuted(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    // click/keydown/touchend/pointerup count as real gestures per spec — these will actually unmute.
+    // touchstart/touchmove/scroll/wheel likely get silently blocked on the very first one (not
+    // spec-recognized gestures) but cost nothing to try, and succeed instantly once a real
+    // gesture has happened anywhere on the page.
+    const opts = { capture: true, passive: true };
+    const events = ["click", "keydown", "touchstart", "touchmove", "touchend", "scroll", "wheel"];
+    events.forEach((ev) => window.addEventListener(ev, attemptUnmute, opts));
+    return () => events.forEach((ev) => window.removeEventListener(ev, attemptUnmute, opts));
+  }, [attemptUnmute]);
 
   useEffect(() => {
     setLoaded(true);
@@ -47,6 +73,7 @@ const Hero = () => {
     if (!v) return;
     v.muted = !v.muted;
     setMuted(v.muted);
+    console.log("muted now:", v.muted, "duration:", v.duration, "vol:", v.volume);
     if (!v.muted) v.play().catch((e) => console.error("play blocked:", e));
   };
 
@@ -64,7 +91,12 @@ const Hero = () => {
   });
 
   return (
-    <section ref={heroRef} style={{ backgroundColor: "#050505", fontFamily: "'DM Sans', sans-serif" }} className="relative overflow-hidden h-auto sm:h-svh">
+    <section
+      ref={heroRef}
+      onMouseEnter={!isMobile ? attemptUnmute : undefined}
+      style={{ backgroundColor: "#050505", fontFamily: "'DM Sans', sans-serif" }}
+      className="relative overflow-hidden h-auto sm:h-svh"
+    >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=DM+Sans:wght@300;400;500&display=swap');
 
@@ -184,8 +216,7 @@ const Hero = () => {
         <video
           ref={videoRef}
           autoPlay
-          // muted
-          defaultMuted
+          muted={muted}
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
@@ -211,20 +242,18 @@ const Hero = () => {
         onClick={toggleSound}
         aria-label={muted ? "Unmute video" : "Mute video"}
         className="hv-sound-btn absolute z-20"
-        style={{ top: "20px", right: "20px" }}
+        style={{ top: "90px", right: "20px" }}
       >
         <div className="hv-explore-icon" style={{ color: "#fff" }}>
           {muted ? "🔇" : "🔊"}
         </div>
       </button>
 
+      {/* Tap-anywhere-for-sound overlay — only exists while muted, real click target, guaranteed to fire */}
+
+
       {/* Gradient overlays */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0.1) 30%, rgba(5,5,5,0.55) 60%, rgba(5,5,5,0.98) 100%)" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 60% at 0% 0%, rgba(160,0,20,0.28) 0%, transparent 60%)" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 45% at 100% 100%, rgba(180,130,40,0.10) 0%, transparent 60%)" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 45%, rgba(0,0,0,0.5) 100%)" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.04, backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.03, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,1) 2px, rgba(0,0,0,1) 4px)" }} />
+      <><div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(5,5,5,0.55) 0%, rgba(5,5,5,0.1) 30%, rgba(5,5,5,0.55) 60%, rgba(5,5,5,0.98) 100%)" }} /><div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 60% at 0% 0%, rgba(160,0,20,0.28) 0%, transparent 60%)" }} /><div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 45% at 100% 100%, rgba(180,130,40,0.10) 0%, transparent 60%)" }} /><div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 100% 100% at 50% 50%, transparent 45%, rgba(0,0,0,0.5) 100%)" }} /><div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.04, backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} /><div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.03, backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,1) 2px, rgba(0,0,0,1) 4px)" }} /></>
 
       {/* Decorative lines — desktop only */}
       <div className="hidden sm:block absolute inset-0 pointer-events-none">
@@ -313,7 +342,7 @@ const Hero = () => {
       <div className="absolute bottom-7 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
         <div className="hv-scroll-indicator" />
       </div>
-    </section>
+    </section >
   );
 };
 
