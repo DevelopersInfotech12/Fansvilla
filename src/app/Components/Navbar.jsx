@@ -30,29 +30,22 @@ const Navbar = () => {
         borderBottom: scrolled ? "1px solid rgba(201,168,76,0.25)" : "1px solid rgba(201,168,76,0.08)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative">
-            <Image
-              src="/blindnewlogo.png"
-              alt="Blindfold Villa"
-              width={36}
-              height={36}
-              className="w-9 h-9 rounded-full object-cover shadow-lg group-hover:scale-110 transition-transform duration-300"
-            />
-            <div className="absolute -inset-1 rounded-full opacity-0 group-hover:opacity-50 blur-md transition-opacity duration-300"
-              style={{ background: "linear-gradient(135deg, #cc0022, #990018)" }} />
-          </div>
-          <span style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: "0.08em", fontSize: "1.35rem" }}>
-            <span style={{ color: "#ffffff" }}>Blindfold</span>
-            <span className="shimmer-text"> Villa</span>
-          </span>
+          <Image
+            src="/blinfoldlogochat.png"
+            alt="Blindfold Villa"
+            width={220}
+            height={95}
+            priority
+            className="h-20 md:h-24 -my-3 md:-my-4 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
+          />
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center py-4 gap-8">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
@@ -70,15 +63,15 @@ const Navbar = () => {
         </div>
 
         {/* Watch Now CTA */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center py-4 gap-3">
           <a
             href="https://youtube.com"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 text-xs font-bold tracking-widest uppercase text-black rounded-full hover:scale-105 transition-all duration-300"
             style={{ background: "linear-gradient(135deg, #c9a84c, #e8c97a)", boxShadow: "0 4px 20px rgba(201,168,76,0.4)" }}
-            onMouseEnter={e => e.currentTarget.style.boxShadow = "0 4px 30px rgba(201,168,76,0.65)"}
-            onMouseLeave={e => e.currentTarget.style.boxShadow = "0 4px 20px rgba(201,168,76,0.4)"}
+            onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 4px 30px rgba(201,168,76,0.65)")}
+            onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 4px 20px rgba(201,168,76,0.4)")}
           >
             ▶ Watch Now
           </a>
@@ -113,6 +106,8 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
+
+
           <a
             href="https://youtube.com"
             target="_blank"
@@ -123,8 +118,8 @@ const Navbar = () => {
             ▶ Watch Now
           </a>
         </div>
-      </div>
-    </nav>
+      </div >
+    </nav >
   );
 };
 
