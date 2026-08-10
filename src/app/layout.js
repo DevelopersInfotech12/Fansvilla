@@ -7,7 +7,7 @@ export const metadata = {
   title: "Blindfold Villa — India's First Blindfold Reality Show",
   description: "8 Strangers. Aankhein Band. Ek Villa. The Ultimate Test of Love.",
   icons: {
-    icon: "/bv-icon.svg"
+    icon: "/blinfoldlogochat.svg"
   },
 };
 
