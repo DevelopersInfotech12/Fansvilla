@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { NAV_LINKS } from "../Data";
 
 const Navbar = () => {
@@ -34,12 +35,13 @@ const Navbar = () => {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative">
-            <div
-              className="w-9 h-9 rounded-full flex items-center justify-center text-white font-black text-xs shadow-lg group-hover:scale-110 transition-transform duration-300"
-              style={{ background: "linear-gradient(135deg, #cc0022, #990018)", border: "1px solid rgba(204,0,34,0.5)" }}
-            >
-              BV
-            </div>
+            <Image
+              src="/blindnewlogo.png"
+              alt="Blindfold Villa"
+              width={36}
+              height={36}
+              className="w-9 h-9 rounded-full object-cover shadow-lg group-hover:scale-110 transition-transform duration-300"
+            />
             <div className="absolute -inset-1 rounded-full opacity-0 group-hover:opacity-50 blur-md transition-opacity duration-300"
               style={{ background: "linear-gradient(135deg, #cc0022, #990018)" }} />
           </div>
