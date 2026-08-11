@@ -117,10 +117,6 @@ const ContestantsSection = () => {
             );
           })}
         </div>
-
-        <p className="text-center text-xs mt-10" style={{ color: "rgba(255,255,255,0.2)", fontFamily: "'DM Sans', sans-serif" }}>
-          Placeholder photos · Real contestant photos coming soon
-        </p>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(204,0,34,0.3), transparent)" }} />

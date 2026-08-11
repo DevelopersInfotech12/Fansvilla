@@ -17,11 +17,11 @@ export const CONTESTANTS = [
   { img: "/contestant4.jpeg", name: "Manpreet Singh", archetype: "The Playboy", archetypeColor: "#cc0022", oneliner: "Charisma is a weapon. He knows how to use it.", gender: "male" },
   { img: "/contestant1.jpeg", name: "Shrerry Ranjan", archetype: "The Manipulator", archetypeColor: "#cc0022", oneliner: "She never shows her cards. Until it's too late.", gender: "female" },
   { img: "/contestant2.jpeg", name: "Shweta Panchal", archetype: "The Silent Killer", archetypeColor: "#cc0022", oneliner: "Says the least. Feels the most. Wins the game.", gender: "female" },
-  { img: "/contestant5.jpeg", name: "Yashika Tyagi", archetype: "The Green Flag", archetypeColor: "#cc0022", oneliner: "Too good to be true? Or exactly what he seems?", gender: "male" },
-  { img: "/contestant3.jpeg", name: "Prashasti Pathak", archetype: "The Overthinker", archetypeColor: "#ff6600", oneliner: "Logic versus emotion. He's losing the battle.", gender: "male" },
-  { img: "/sushant.jpeg", name: "Sushant Sharma", archetype: "The Wildcard", archetypeColor: "#ff6600", oneliner: "No one predicted her. No one was ready.", gender: "female" },
+  { img: "/contestant5.jpeg", name: "Yashika Tyagi", archetype: "The Green Flag", archetypeColor: "#cc0022", oneliner: "Too good to be true? Or exactly what she seems?", gender: "female" },
+  { img: "/contestant3.jpeg", name: "Prashasti Pathak", archetype: "The Overthinker", archetypeColor: "#ff6600", oneliner: "Logic versus emotion. She's losing the battle.", gender: "female" },
+  { img: "/sushant.jpeg", name: "Sushant Sharma", archetype: "The Wildcard", archetypeColor: "#ff6600", oneliner: "No one predicted him. No one was ready.", gender: "male" },
   { img: "/naman.jpeg", name: "Naman Sachdeva", archetype: "The Protector", archetypeColor: "#ff6600", oneliner: "He came to connect. He stayed to defend.", gender: "male" },
-  { img: "/contestant6.jpeg", name: "Tushar Mehra", archetype: "The Heartbreaker", archetypeColor: "#ff6600", oneliner: "She didn't mean to. She never does.", gender: "female" },
+  { img: "/contestant6.jpeg", name: "Tushar Mehra", archetype: "The Heartbreaker", archetypeColor: "#ff6600", oneliner: "He didn't mean to. He never does.", gender: "male" },
 ];
 
 export const TENSION_UPDATES = [
