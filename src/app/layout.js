@@ -8,10 +8,11 @@ export const metadata = {
   description: "8 Strangers. Aankhein Band. Ek Villa. The Ultimate Test of Love.",
   icons: {
     icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
       { url: "/blinfoldlogochat.svg", type: "image/svg+xml" },
-      { url: "/favicon.png", type: "image/png" }, // removed wrong "32x32" claim, actual file bigger + non-square
+      { url: "/favicon.png", type: "image/png" },
     ],
-    shortcut: "/favicon.png",
+    shortcut: "/favicon.ico",
     apple: "/favicon.png",
   },
 };
