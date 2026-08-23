@@ -3,13 +3,26 @@ import TopBar from "./Components/TopBar";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 
+// export const metadata = {
+//   title: "Blindfold Villa — India's First Blindfold Reality Show",
+//   description: "8 Strangers. Aankhein Band. Ek Villa. The Ultimate Test of Love.",
+//   icons: {
+//     icon: "/blinfoldlogochat.svg"
+//   },
+// };
+
 export const metadata = {
   title: "Blindfold Villa — India's First Blindfold Reality Show",
   description: "8 Strangers. Aankhein Band. Ek Villa. The Ultimate Test of Love.",
   icons: {
-    icon: "/blinfoldlogochat.svg"
+    icon: [
+      { url: "/blinfoldlogochat.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" }, // add PNG fallback
+    ],
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
-};
+}
 
 export default function RootLayout({ children }) {
   return (
