@@ -55,8 +55,8 @@ export const SOCIAL_LINKS = [
   { label: "Instagram", handle: "@blindfoldvilla", url: "https://instagram.com/blindfoldvilla", icon: "IG" },
   { label: "Instagram", handle: "@jalajhasija", url: "https://instagram.com/jalajhasija", icon: "IG" },
   { label: "YouTube", handle: "Jalaj Hasija Vlogs", url: "https://youtube.com", icon: "YT" },
-  { label: "Facebook", handle: "Jalaj Hasija", url: "https://www.facebook.com/share/19NGuU8Wkb/", icon: "FB" },
-  { label: "Twitter/X", handle: "@JalajHasija", url: "https://x.com/Blindfoldvilla", icon: "X" },
+  { label: "Facebook", handle: "Blindfold Villa", url: "https://www.facebook.com/share/19NGuU8Wkb/", icon: "FB" },
+  { label: "Twitter/X", handle: "@BlindfoldVilla", url: "https://x.com/Blindfoldvilla", icon: "X" },
 ];
 
 export const NOTIFICATIONS = [
