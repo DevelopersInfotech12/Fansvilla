@@ -65,7 +65,7 @@ const Navbar = () => {
         {/* Watch Now CTA */}
         <div className="hidden md:flex items-center py-4 gap-3">
           <a
-            href="https://youtube.com"
+            href="https://yt.openinapp.co/3s0gu"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 text-xs font-bold tracking-widest uppercase text-black rounded-full hover:scale-105 transition-all duration-300"

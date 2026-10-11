@@ -2,7 +2,7 @@
 import { EPISODES } from "../Data";
 
 const THUMB_IMGS = [
-  "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=600&q=80&fit=crop",
+  "./thumbnail/Ep1thumbnail.png",
   "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80&fit=crop",
   "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&q=80&fit=crop",
 ];
