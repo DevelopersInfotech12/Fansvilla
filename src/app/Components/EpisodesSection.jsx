@@ -1,10 +1,12 @@
 "use client";
 import { EPISODES } from "../Data";
 
+// Put files in /public/thumbnail/ (served from "/thumbnail/...")
+// Export Ep1thumbnail.png at 1280x720
 const THUMB_IMGS = [
-  "./thumbnail/Ep1thumbnail.png",
-  "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=600&q=80&fit=crop",
-  "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&q=80&fit=crop",
+  "/thumbnail/Ep1thumbnail.png",
+  "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1280&q=90&fit=crop",
+  "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1280&q=90&fit=crop",
 ];
 
 const EpisodesSection = () => (
@@ -13,15 +15,32 @@ const EpisodesSection = () => (
     className="py-28 px-4 relative overflow-hidden"
     style={{ background: "linear-gradient(180deg, #0a0005 0%, #050000 100%)" }}
   >
-    <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139,0,0,0.1) 0%, transparent 70%)" }} />
+    <div
+      className="absolute inset-0 pointer-events-none"
+      style={{
+        background:
+          "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(139,0,0,0.1) 0%, transparent 70%)",
+      }}
+    />
 
     <div className="max-w-6xl mx-auto relative z-10">
       {/* Header */}
       <div className="text-center mb-14">
         <div className="inline-flex items-center gap-3 mb-4">
-          <div className="h-px w-8" style={{ background: "linear-gradient(90deg, transparent, #c9a84c)" }} />
-          <span className="text-sm font-semibold tracking-[0.28em] uppercase" style={{ color: "#c9a84c" }}>Watch Now</span>
-          <div className="h-px w-8" style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
+          <div
+            className="h-px w-8"
+            style={{ background: "linear-gradient(90deg, transparent, #c9a84c)" }}
+          />
+          <span
+            className="text-sm font-semibold tracking-[0.28em] uppercase"
+            style={{ color: "#c9a84c" }}
+          >
+            Watch Now
+          </span>
+          <div
+            className="h-px w-8"
+            style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }}
+          />
         </div>
         <h2
           className="font-black leading-tight"
@@ -35,7 +54,10 @@ const EpisodesSection = () => (
         >
           The <span className="shimmer-text italic">Episodes</span>
         </h2>
-        <p className="mt-3 text-sm" style={{ color: "rgba(255, 255, 255, 0.88)", fontWeight: 700 }}>
+        <p
+          className="mt-3 text-sm"
+          style={{ color: "rgba(255, 255, 255, 0.88)", fontWeight: 700 }}
+        >
           All 3 episodes streaming on YouTube
         </p>
       </div>
@@ -54,34 +76,53 @@ const EpisodesSection = () => (
               background: "#2a2a2a",
             }}
           >
-            {/* Thumbnail */}
-            <div className="relative h-48 overflow-hidden">
+            {/* Thumbnail: 16:9 = no heavy crop = sharper */}
+            <div className="relative aspect-video overflow-hidden">
               <img
                 src={THUMB_IMGS[i]}
                 alt={ep.title}
+                width={1280}
+                height={720}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
 
               {/* Episode tag */}
               <div className="absolute top-3 left-3">
-                <span className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded"
-                  style={{ background: "rgba(0,0,0,0.7)", color: "rgba(255,255,255,0.75)", border: "1px solid rgba(201,168,76,0.2)", backdropFilter: "blur(6px)" }}>
+                <span
+                  className="text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded"
+                  style={{
+                    background: "rgba(0,0,0,0.7)",
+                    color: "rgba(255,255,255,0.75)",
+                    border: "1px solid rgba(201,168,76,0.2)",
+                    backdropFilter: "blur(6px)",
+                  }}
+                >
                   {ep.tag}
                 </span>
               </div>
 
               {/* Views */}
               <div className="absolute top-3 right-3">
-                <span className="text-[10px] font-bold px-3 py-1 rounded"
-                  style={{ background: "rgba(0,0,0,0.7)", color: "#c9a84c", backdropFilter: "blur(6px)" }}>
+                <span
+                  className="text-[10px] font-bold px-3 py-1 rounded"
+                  style={{
+                    background: "rgba(0,0,0,0.7)",
+                    color: "#c9a84c",
+                    backdropFilter: "blur(6px)",
+                  }}
+                >
                   👁 {ep.views} views
                 </span>
               </div>
 
               {/* Play button */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center"
-                  style={{ background: "rgba(201,168,76,0.9)" }}>
+                <div
+                  className="w-14 h-14 rounded-full flex items-center justify-center"
+                  style={{ background: "rgba(201,168,76,0.9)" }}
+                >
                   <span className="text-black text-xl ml-1">▶</span>
                 </div>
               </div>
@@ -89,8 +130,18 @@ const EpisodesSection = () => (
 
             {/* Card body */}
             <div className="p-5">
-              <h3 className="font-bold text-lg mb-1 text-white" style={{ fontFamily: "'Poppins', 'system-ui', sans-serif" }}>{ep.title}</h3>
-              <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255, 255, 255, 0.84)", fontWeight: 700 }}>{ep.desc}</p>
+              <h3
+                className="font-bold text-lg mb-1 text-white"
+                style={{ fontFamily: "'Poppins', 'system-ui', sans-serif" }}
+              >
+                {ep.title}
+              </h3>
+              <p
+                className="text-sm leading-relaxed mb-6"
+                style={{ color: "rgba(255, 255, 255, 0.84)", fontWeight: 700 }}
+              >
+                {ep.desc}
+              </p>
               <div className="mt-4 flex items-center gap-1.5" style={{ color: "#c9a84c" }}>
                 <span className="text-xs font-bold">Watch on YouTube →</span>
               </div>
