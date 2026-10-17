@@ -1,13 +1,20 @@
 "use client";
+import Link from "next/link";
 import { EPISODES } from "../Data";
 
 // Put files in /public/thumbnail/ (served from "/thumbnail/...")
 // Export Ep1thumbnail.png at 1280x720
 const THUMB_IMGS = [
   "/thumbnail/Ep1thumbnail.png",
-  "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1280&q=90&fit=crop",
-  "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=1280&q=90&fit=crop",
+  "/thumbnail/Ep2thumbnail.jpeg",
+  "/thumbnail/Ep3thumbnail.jpeg",
 ];
+
+// Link for the "Watch on YouTube" button
+const WATCH_LINK = "https://yt.openinapp.co/3s0gu";
+
+// Gold gradient shared with the "Watch Now" button
+const GOLD_BTN_BG = "linear-gradient(135deg, #e6c76a 0%, #c9a84c 100%)";
 
 const EpisodesSection = () => (
   <section
@@ -65,19 +72,21 @@ const EpisodesSection = () => (
       {/* Episode cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {EPISODES.map((ep, i) => (
-          <a
+          <div
             key={i}
-            href={ep.youtubeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative rounded-2xl overflow-hidden cursor-pointer block"
+            className="group relative rounded-2xl overflow-hidden block"
             style={{
               border: "1px solid rgba(201,168,76,0.12)",
               background: "#2a2a2a",
             }}
           >
             {/* Thumbnail: 16:9 = no heavy crop = sharper */}
-            <div className="relative aspect-video overflow-hidden">
+            <Link
+              href={ep.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative aspect-video overflow-hidden block cursor-pointer"
+            >
               <img
                 src={THUMB_IMGS[i]}
                 alt={ep.title}
@@ -86,6 +95,8 @@ const EpisodesSection = () => (
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover"
+                // Lighter image: raise brightness, slight contrast + saturation
+                style={{ filter: "brightness(1.05) contrast(1.05) saturate(1.1)" }}
               />
 
               {/* Episode tag */}
@@ -117,16 +128,16 @@ const EpisodesSection = () => (
                 </span>
               </div>
 
-              {/* Play button */}
+              {/* Play button (smaller) */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center"
+                  className="w-9 h-9 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
                   style={{ background: "rgba(201,168,76,0.9)" }}
                 >
-                  <span className="text-black text-xl ml-1">▶</span>
+                  <span className="text-black text-xs ml-0.5">▶</span>
                 </div>
               </div>
-            </div>
+            </Link>
 
             {/* Card body */}
             <div className="p-5">
@@ -142,11 +153,24 @@ const EpisodesSection = () => (
               >
                 {ep.desc}
               </p>
-              <div className="mt-4 flex items-center gap-1.5" style={{ color: "#c9a84c" }}>
-                <span className="text-xs font-bold">Watch on YouTube →</span>
-              </div>
+
+              {/* Watch on YouTube: same style as "Watch Now" button */}
+              <Link
+                href={WATCH_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300 hover:scale-105 hover:brightness-110"
+                style={{
+                  background: GOLD_BTN_BG,
+                  color: "#000",
+                  boxShadow: "0 4px 16px rgba(201,168,76,0.25)",
+                }}
+              >
+                {/* <span className="text-[10px]">▶</span> */}
+                Watch on YouTube
+              </Link>
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </div>

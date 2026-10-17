@@ -41,9 +41,9 @@ export const TASKS = [
 ];
 
 export const EPISODES = [
-  { title: "Episode 1", tag: "Ep 1", youtubeUrl: "https://youtube.com", views: "1.2M", desc: "8 strangers meet for the first time — blindfolded. The journey begins." },
-  { title: "Episode 2", tag: "Ep 2", youtubeUrl: "https://youtube.com", views: "980K", desc: "Tasks intensify. Connections deepen. Who will trust the feeling?" },
-  { title: "Episode 3", tag: "Ep 3", youtubeUrl: "https://youtube.com", views: "1.5M", desc: "The finale — blindfolds off. Hearts revealed. The ultimate test of love." },
+  { title: "Episode 1", tag: "Ep 1", youtubeUrl: "https://yt.openinapp.co/3s0gu", views: "1.2M", desc: "8 strangers meet for the first time — blindfolded. The journey begins." },
+  { title: "Episode 2", tag: "Ep 2", youtubeUrl: "https://yt.openinapp.co/3s0gu", views: "980K", desc: "Tasks intensify. Connections deepen. Who will trust the feeling?" },
+  { title: "Episode 3", tag: "Ep 3", youtubeUrl: "https://yt.openinapp.co/3s0gu", views: "1.5M", desc: "The finale — blindfolds off. Hearts revealed. The ultimate test of love." },
 ];
 
 export const SPONSORS = [
