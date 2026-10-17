@@ -109,7 +109,7 @@ const Navbar = () => {
 
 
           <a
-            href="https://youtube.com"
+            href="https://yt.openinapp.co/3s0gu"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-3 py-3 text-sm font-bold text-center text-black rounded-full"

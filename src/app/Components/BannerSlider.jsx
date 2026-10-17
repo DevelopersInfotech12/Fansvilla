@@ -1,12 +1,14 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 
+// https://yt.openinapp.co/3s0gu
+
 const SLIDES = [
   {
     tag: "Season 1 — Now Streaming",
     headline: "Aankhein Band,\nDil Khula",
     sub: "India's first blindfold reality show. Love without sight.",
-    cta: { label: "▶ Watch Now", href: "https://youtube.com" },
+    cta: { label: "▶ Watch Now", href: "https://yt.openinapp.co/3s0gu" },
     accent: "#c9a84c",
     bg: "radial-gradient(ellipse 80% 60% at 30% 50%, rgba(139,0,0,0.28) 0%, transparent 65%), radial-gradient(ellipse 60% 80% at 80% 20%, rgba(201,168,76,0.08) 0%, transparent 60%)",
     eyeIcon: "👁️",
