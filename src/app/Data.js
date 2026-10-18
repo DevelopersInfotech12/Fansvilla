@@ -54,7 +54,7 @@ export const SPONSORS = [
 export const SOCIAL_LINKS = [
   { label: "Instagram", handle: "@blindfoldvilla", url: "https://instagram.com/blindfoldvilla", icon: "IG" },
   { label: "Instagram", handle: "@jalajhasija", url: "https://instagram.com/jalajhasija", icon: "IG" },
-  { label: "YouTube", handle: "Jalaj Hasija Vlogs", url: "https://youtube.com", icon: "YT" },
+  { label: "YouTube", handle: "Jalaj Hasija", url: "https://yt.openinapp.co/3s0gu", icon: "YT" },
   { label: "Facebook", handle: "Blindfold Villa", url: "https://www.facebook.com/share/19NGuU8Wkb/", icon: "FB" },
   { label: "Twitter/X", handle: "@BlindfoldVilla", url: "https://x.com/Blindfoldvilla", icon: "X" },
 ];
