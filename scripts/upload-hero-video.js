@@ -2,6 +2,7 @@
 // Uploads public/hero-video.mp4 to Cloudinary using chunked upload (handles large files).
 // Prints the secure_url — paste that into .env.local as NEXT_PUBLIC_HERO_VIDEO_URL.
 
+require("dotenv").config({ path: ".env" });
 require("dotenv").config({ path: ".env.local" });
 const cloudinary = require("cloudinary").v2;
 const path = require("path");

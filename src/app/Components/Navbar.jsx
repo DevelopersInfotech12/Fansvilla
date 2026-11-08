@@ -40,7 +40,7 @@ const Navbar = () => {
             width={220}
             height={95}
             priority
-            className="h-20 md:h-24 -my-3 md:-my-4 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
+            className="h-14 md:h-16 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
           />
         </Link>
 
